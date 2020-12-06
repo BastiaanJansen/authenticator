@@ -11,8 +11,8 @@ import SwiftOTP
 class HomeViewModel: ObservableObject {
     
     @Published var accounts: [Account] = [
-        Account(service: "Microsoft", name: "myemail@mail.com", key: "DREERRRR"),
-        Account(service: "Google", name: "myemail@mail.com", key: "DREERRRRSD")
+//        Account(service: "Microsoft", name: "myemail@mail.com", key: "DREERRRR"),
+//        Account(service: "Google", name: "myemail@mail.com", key: "DREERRRRSD")
     ]
     @Published var showScanQRCodeView: Bool = false
     

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC4257CEBE600E2703D /* CodeGenerator.swift */; };
 		280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC9257CF85400E2703D /* AccountRow.swift */; };
+		2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD6B257D070400D60A05 /* AddAccountView.swift */; };
+		2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD70257D072800D60A05 /* AddAccountViewModel.swift */; };
+		2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */; };
+		2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */; };
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
 		28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* StringExtension.swift */; };
 		28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */; };
@@ -45,6 +49,10 @@
 /* Begin PBXFileReference section */
 		280C0DC4257CEBE600E2703D /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		280C0DC9257CF85400E2703D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		2875AD6B257D070400D60A05 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		2875AD70257D072800D60A05 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
+		2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
+		2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
 		28C5ED17257CE385009BF851 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		28FAEEFF257CC98F008E8FD6 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				28C5ED17257CE385009BF851 /* StringExtension.swift */,
+				2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
+				2875AD70257D072800D60A05 /* AddAccountViewModel.swift */,
+				2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -178,6 +189,7 @@
 				28FAEF04257CC98F008E8FD6 /* ContentView.swift */,
 				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
 				28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */,
+				2875AD6B257D070400D60A05 /* AddAccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,13 +347,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */,
+				2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */,
 				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
+				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
 				28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */,
+				2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */,
 				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,
+				2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */,
 				28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
 				28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */,

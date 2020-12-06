@@ -10,12 +10,14 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(entity: Account.entity(), sortDescriptors: []) var accounts: FetchedResults<Account>
     
     @ObservedObject var homeViewModel = HomeViewModel()
 
     var body: some View {
         NavigationView {
-            List(homeViewModel.accounts) { account in
+            List(accounts) { account in
                 AccountRow(account: account)
             }
             .listStyle(InsetGroupedListStyle())
@@ -23,7 +25,7 @@ struct ContentView: View {
                 Button(action: {
                     self.homeViewModel.showScanQRCodeView.toggle()
                 }) {
-                    Image(systemName: "plus.circle.fill").imageScale(.large)
+                    Image(systemName: "plus.circle.fill").resizable().frame(width: 30, height: 30)
                 }.sheet(isPresented: $homeViewModel.showScanQRCodeView) {
                     ScanQRCodeView()
                 }

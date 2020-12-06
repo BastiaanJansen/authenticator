@@ -7,31 +7,44 @@
 
 import Foundation
 import SwiftOTP
+import CoreData
 
-class Account: ObservableObject, Identifiable {
-    let id: UUID
-    let service: String
-    let name: String
-    let key: String
-    let generator: CodeGenerator
+class Account: NSManagedObject, Identifiable {
+    @NSManaged private(set) var id: UUID
+    @NSManaged private(set) var service: String
+    @NSManaged private(set) var name: String
+    @NSManaged private(set) var key: String
+    private var generator: CodeGenerator = CodeGenerator()
     
-    @Published var secondsUntilRefresh: Int
+    @Published var secondsUntilRefresh: Int = 0
     @Published var code: String?
     
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Account> {
+        return NSFetchRequest<Account>(entityName: "Account")
+    }
     
-    init(service: String, name: String, key: String, generator: CodeGenerator = CodeGenerator()) {
+    @objc
+    private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+        self.setCode()
+        self.update()
+    }
+    
+    convenience init(context: NSManagedObjectContext, service: String, name: String, key: String) {
+        self.init(context: context)
+        
         self.id = UUID()
         self.service = service
         self.name = name
         self.key = key
-        self.generator = generator
-        self.secondsUntilRefresh = 0
-        self.secondsUntilRefresh = self.calculateSecondsUntilRefresh()
         
         self.setCode()
     }
-    
+}
+
+extension Account {
     func update() {
+        objectWillChange.send()
         let remainder = self.calculateSecondsUntilRefresh()
         self.secondsUntilRefresh = remainder
         

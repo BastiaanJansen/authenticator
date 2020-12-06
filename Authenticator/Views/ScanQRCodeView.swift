@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct ScanQRCodeView: View {
+    @ObservedObject var scanQRCodeVM = ScanQRCodeViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Spacer()
+                Button(action: {
+                    self.scanQRCodeVM.showAddAccountView.toggle()
+                }) {
+                    Text("Enter code manually")
+                }.sheet(isPresented: self.$scanQRCodeVM.showAddAccountView) {
+                    AddAccountView()
+                }
+            }.navigationTitle("Scan QR Code")
+        }
     }
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF0D257CC991008E8FD6 /* Authenticator.xcdatamodeld */; };
 		28FAEF1A257CC991008E8FD6 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF19257CC991008E8FD6 /* AuthenticatorTests.swift */; };
 		28FAEF25257CC991008E8FD6 /* AuthenticatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF24257CC991008E8FD6 /* AuthenticatorUITests.swift */; };
+		28FAEF37257CCAFE008E8FD6 /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 28FAEF36257CCAFE008E8FD6 /* SwiftOTP */; };
+		28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF40257CCB55008E8FD6 /* HomeView.swift */; };
+		28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,8 @@
 		28FAEF20257CC991008E8FD6 /* AuthenticatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FAEF24257CC991008E8FD6 /* AuthenticatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorUITests.swift; sourceTree = "<group>"; };
 		28FAEF26257CC991008E8FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28FAEF40257CCB55008E8FD6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FAEF37257CCAFE008E8FD6 /* SwiftOTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,8 +105,9 @@
 		28FAEF01257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				28FAEF3F257CCB21008E8FD6 /* Views */,
+				28FAEF3B257CCB16008E8FD6 /* ViewModels */,
 				28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */,
-				28FAEF04257CC98F008E8FD6 /* ContentView.swift */,
 				28FAEF06257CC991008E8FD6 /* Assets.xcassets */,
 				28FAEF0B257CC991008E8FD6 /* Persistence.swift */,
 				28FAEF10257CC991008E8FD6 /* Info.plist */,
@@ -136,6 +143,23 @@
 			path = AuthenticatorUITests;
 			sourceTree = "<group>";
 		};
+		28FAEF3B257CCB16008E8FD6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		28FAEF3F257CCB21008E8FD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28FAEF04257CC98F008E8FD6 /* ContentView.swift */,
+				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +176,9 @@
 			dependencies = (
 			);
 			name = Authenticator;
+			packageProductDependencies = (
+				28FAEF36257CCAFE008E8FD6 /* SwiftOTP */,
+			);
 			productName = Authenticator;
 			productReference = 28FAEEFF257CC98F008E8FD6 /* Authenticator.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 28FAEEF6257CC98F008E8FD6;
+			packageReferences = (
+				28FAEF35257CCAFE008E8FD6 /* XCRemoteSwiftPackageReference "SwiftOTP" */,
+			);
 			productRefGroup = 28FAEF00257CC98F008E8FD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,8 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */,
+				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */,
+				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28FAEF35257CCAFE008E8FD6 /* XCRemoteSwiftPackageReference "SwiftOTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lachlanbell/SwiftOTP.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28FAEF36257CCAFE008E8FD6 /* SwiftOTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28FAEF35257CCAFE008E8FD6 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
+			productName = SwiftOTP;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28FAEF0D257CC991008E8FD6 /* Authenticator.xcdatamodeld */ = {

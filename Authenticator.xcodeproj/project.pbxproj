@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC4257CEBE600E2703D /* CodeGenerator.swift */; };
+		280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC9257CF85400E2703D /* AccountRow.swift */; };
+		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
+		28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* StringExtension.swift */; };
 		28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */; };
 		28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF04257CC98F008E8FD6 /* ContentView.swift */; };
 		28FAEF07257CC991008E8FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FAEF06257CC991008E8FD6 /* Assets.xcassets */; };
@@ -18,6 +22,7 @@
 		28FAEF37257CCAFE008E8FD6 /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 28FAEF36257CCAFE008E8FD6 /* SwiftOTP */; };
 		28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF40257CCB55008E8FD6 /* HomeView.swift */; };
 		28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */; };
+		28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF4F257CD28B008E8FD6 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280C0DC4257CEBE600E2703D /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
+		280C0DC9257CF85400E2703D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
+		28C5ED17257CE385009BF851 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		28FAEEFF257CC98F008E8FD6 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
 		28FAEF04257CC98F008E8FD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +63,7 @@
 		28FAEF26257CC991008E8FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28FAEF40257CCB55008E8FD6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		28FAEF4F257CD28B008E8FD6 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28C5ED16257CE36D009BF851 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28C5ED17257CE385009BF851 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		28FAEEF6257CC98F008E8FD6 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +123,8 @@
 		28FAEF01257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				28C5ED16257CE36D009BF851 /* Extensions */,
+				28FAEF4E257CD26B008E8FD6 /* Models */,
 				28FAEF3F257CCB21008E8FD6 /* Views */,
 				28FAEF3B257CCB16008E8FD6 /* ViewModels */,
 				28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */,
@@ -154,10 +174,29 @@
 		28FAEF3F257CCB21008E8FD6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28FAEF4D257CD25A008E8FD6 /* Components */,
 				28FAEF04257CC98F008E8FD6 /* ContentView.swift */,
 				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
+				28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		28FAEF4D257CD25A008E8FD6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				280C0DC9257CF85400E2703D /* AccountRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		28FAEF4E257CD26B008E8FD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28FAEF4F257CD28B008E8FD6 /* Account.swift */,
+				280C0DC4257CEBE600E2703D /* CodeGenerator.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +336,15 @@
 			files = (
 				28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */,
 				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
+				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
+				28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */,
+				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,
+				28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
+				28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

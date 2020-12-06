@@ -15,7 +15,19 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            Text("Hello world").navigationTitle("Authenticator")
+            List(homeViewModel.accounts) { account in
+                AccountRow(account: account)
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Authenticator").navigationBarItems(trailing:
+                Button(action: {
+                    self.homeViewModel.showScanQRCodeView.toggle()
+                }) {
+                    Image(systemName: "plus.circle.fill").imageScale(.large)
+                }.sheet(isPresented: $homeViewModel.showScanQRCodeView) {
+                    ScanQRCodeView()
+                }
+            )
         }
     }
 }

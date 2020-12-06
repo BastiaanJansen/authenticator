@@ -13,23 +13,34 @@ struct ContentView: View {
 
     @FetchRequest(entity: Account.entity(), sortDescriptors: []) var accounts: FetchedResults<Account>
     
-    @ObservedObject var homeViewModel = HomeViewModel()
+    @ObservedObject var homeVM = HomeViewModel()
 
     var body: some View {
         NavigationView {
-            List(accounts) { account in
-                AccountRow(account: account)
+            List {
+                ForEach(accounts) { account in
+                    AccountRow(account: account)
+                }
+                .onDelete(perform: delete)
             }
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Authenticator").navigationBarItems(trailing:
                 Button(action: {
-                    self.homeViewModel.showScanQRCodeView.toggle()
+                    self.homeVM.showScanQRCodeView.toggle()
                 }) {
                     Image(systemName: "plus.circle.fill").resizable().frame(width: 30, height: 30)
-                }.sheet(isPresented: $homeViewModel.showScanQRCodeView) {
+                }.sheet(isPresented: $homeVM.showScanQRCodeView) {
                     ScanQRCodeView()
                 }
             )
+        }.onAppear() {
+            self.homeVM.context = viewContext
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        offsets.forEach { index in
+            self.homeVM.delete(account: self.accounts[index])
         }
     }
 }

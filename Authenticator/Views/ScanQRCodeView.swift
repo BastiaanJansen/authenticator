@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScanQRCodeView: View {
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var scanQRCodeVM = ScanQRCodeViewModel()
     
     var body: some View {
@@ -18,7 +19,9 @@ struct ScanQRCodeView: View {
                     self.scanQRCodeVM.showAddAccountView.toggle()
                 }) {
                     Text("Enter code manually")
-                }.sheet(isPresented: self.$scanQRCodeVM.showAddAccountView) {
+                }.sheet(isPresented: self.$scanQRCodeVM.showAddAccountView, onDismiss: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
                     AddAccountView()
                 }
             }.navigationTitle("Scan QR Code")

@@ -7,22 +7,16 @@
 
 import Foundation
 import SwiftOTP
+import CoreData
 
 class HomeViewModel: ObservableObject {
-    
-    @Published var accounts: [Account] = [
-//        Account(service: "Microsoft", name: "myemail@mail.com", key: "DREERRRR"),
-//        Account(service: "Google", name: "myemail@mail.com", key: "DREERRRRSD")
-    ]
+    var context: NSManagedObjectContext?
+
     @Published var showScanQRCodeView: Bool = false
     
-//    init() {
-//        guard let data = base32DecodeToData("DREERRRR") else { return }
-//        
-//        if let totp = TOTP(secret: data, digits: 6, timeInterval: 30, algorithm: .sha1) {
-//            let code: String? = totp.generate(time: Date())
-//            
-//            print(code ?? "No code")
-//        }
-//    }
+    func delete(account: Account) {
+        guard let context = self.context else { fatalError("Context is not set") }
+        context.delete(account)
+        context.saveContext()
+    }
 }

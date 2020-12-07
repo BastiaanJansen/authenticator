@@ -25,7 +25,6 @@ class StartViewModel: ObservableObject {
     
     func shouldAuthenticate() -> Bool {
         let biometricAuthenticationIsEnabled: Bool = UserDefaults.standard.bool(forKey: "BiometricAuthenticationIsEnabled")
-        print(biometricAuthenticationIsEnabled)
         return biometricAuthenticationIsEnabled
     }
     

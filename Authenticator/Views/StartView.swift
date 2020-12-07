@@ -16,15 +16,14 @@ struct StartView: View {
         if startVM.isUnlocked {
             HomeView()
         } else {
-//            Button(action: {
-//                startVM.authenticateBiometric()
-//            }) {
-//                HStack {
-//                    Image(systemName: AuthenticatorApp.biometricType() == BiometricType.faceID ? "faceid" : "touchid")
-//                    Text("Unlock")
-//                }
-//            }
-            Text("Not unlocked")
+            Button(action: {
+                startVM.authenticateBiometric()
+            }) {
+                HStack {
+                    Image(systemName: AuthenticatorApp.biometricType() == BiometricType.faceID ? "faceid" : "touchid")
+                    Text("Unlock")
+                }
+            }
         }
     }
 }

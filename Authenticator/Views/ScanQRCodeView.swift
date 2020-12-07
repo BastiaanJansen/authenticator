@@ -16,58 +16,48 @@ struct ScanQRCodeView: View {
     @ObservedObject var scanQRCodeVM = ScanQRCodeViewModel()
     
     var body: some View {
-        ZStack {
-            GeometryReader { geo in
+        NavigationView {
+            VStack {
                 CBScanner(
                     supportBarcode: .constant([.qr]),
                     scanInterval: .constant(2.0)
                 ){
                     self.scanQRCodeVM.foundBarcode(value: $0.value)
                 }
-
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Cancel")
-                                .foregroundColor(.black)
-                                .font(.system(size: 14))
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    Rectangle()
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                        .frame(width: geo.size.width / 2 - 30))
-                        }
-                        
-                        Button(action: {
-                            self.scanQRCodeVM.showAddAccountView.toggle()
-                        }) {
-                            Text("Enter code manually")
-                                .foregroundColor(.black)
-                                .font(.system(size: 14))
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    Rectangle()
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
-                                        .frame(width: geo.size.width / 2 - 30))
-                        }
-                        .sheet(isPresented: self.$scanQRCodeVM.showAddAccountView, onDismiss: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            AddAccountView()
-                        }
-                    }
-                }.padding(.bottom, 50)
+                .cornerRadius(20)
+                .padding()
+                 
+                Button(action: {
+                    self.scanQRCodeVM.showAddAccountView.toggle()
+                }) {
+                    Text("Enter code manually")
+                        .foregroundColor(.white)
+                        .font(.system(size: 14))
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            Rectangle()
+                                .foregroundColor(.accentColor)
+                                .cornerRadius(10)
+                                .frame(width: 200)
+                    )
+                }
+                .sheet(isPresented: self.$scanQRCodeVM.showAddAccountView, onDismiss: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    AddAccountView()
+                }
             }
+            .padding(.bottom)
+            .navigationTitle("Scan QR code")
+            .navigationBarItems(leading:
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancel")
+                }
+            )
         }
-        .ignoresSafeArea(.all, edges: .all)
         .onAppear() {
             self.scanQRCodeVM.context = viewContext
         }

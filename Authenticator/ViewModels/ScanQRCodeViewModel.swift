@@ -11,37 +11,45 @@ import Combine
 
 class ScanQRCodeViewModel: ObservableObject {
     var context: NSManagedObjectContext?
-    var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
-    private var shouldDismissView = false {
-        didSet {
-            viewDismissalModePublisher.send(shouldDismissView)
-        }
-    }
     
+    @Published var accountCreated: Bool = false
     @Published var showAddAccountView: Bool = false
+
     
-    func foundBarcode(value: String) {
+    func foundBarcode(url: URL) {
         var map: [String: String] = [:]
-        let info = value.split(separator: "/")[2]
+        let mustHaveKeys = ["issuer", "secret", "digits", "algorithm", "period"]
         
-        let paramInfo = info.split(separator: "?")
-        let name = paramInfo[0].split(separator: ":")[1]
-        map["name"] = String(name)
+        guard url.scheme == "otpauth" else { return }
+       
+        guard url.host == "totp" else { return }
         
-        let params = paramInfo[1].split(separator: "&")
+        guard let query = url.query else { return }
+        
+        let path = url.path
+        
+        map["name"] = String(path.split(separator: ":")[1])
+        
+        let params = query.split(separator: "&")
         
         params.forEach { param in
-            let pair = param.split(separator: "=")
-            map[String(pair[0])] = String(pair[1])
+            let splitted = param.split(separator: "=")
+            let key = String(splitted[0])
+            let value = String(splitted[1])
+            map[key] = value
         }
         
+        guard self.has(mustHaveKeys: mustHaveKeys, in: map) else { return }
         let _ = self.createAccount(service: map["issuer"]!, name: map["name"]!, key: map["secret"]!)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print("sds")
-            self.shouldDismissView = true
+    }
+    
+    private func has(mustHaveKeys keys: [String], in dictionary: [String: String]) -> Bool {
+        for key in keys {
+            if dictionary[key] == nil { return false }
         }
         
+        return true
     }
     
     func createAccount(service: String, name: String, key: String) -> Account {
@@ -49,6 +57,8 @@ class ScanQRCodeViewModel: ObservableObject {
         let account = Account(context: context, service: service, name: name, key: key)
         
         context.saveContext()
+        
+        self.accountCreated = true
         
         return account
     }

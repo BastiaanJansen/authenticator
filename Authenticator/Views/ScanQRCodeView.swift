@@ -22,7 +22,14 @@ struct ScanQRCodeView: View {
                     supportBarcode: .constant([.qr]),
                     scanInterval: .constant(2.0)
                 ){
-                    self.scanQRCodeVM.foundBarcode(value: $0.value)
+                    let url = URL(string: $0.value)
+                    if let url = url {
+                        self.scanQRCodeVM.foundBarcode(url: url)
+                        
+                        if self.scanQRCodeVM.accountCreated {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                 }
                 .cornerRadius(20)
                 .padding()
@@ -60,12 +67,6 @@ struct ScanQRCodeView: View {
         }
         .onAppear() {
             self.scanQRCodeVM.context = viewContext
-        }
-        .onReceive(scanQRCodeVM.viewDismissalModePublisher) { shouldDismiss in
-            print(shouldDismiss)
-            if shouldDismiss {
-                self.presentationMode.wrappedValue.dismiss()
-            }
         }
     }
 }

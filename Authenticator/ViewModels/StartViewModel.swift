@@ -15,7 +15,6 @@ class StartViewModel: ObservableObject {
     
     init() {
         let shouldAuthenticate = self.shouldAuthenticate()
-        print(shouldAuthenticate)
         if shouldAuthenticate {
             authenticateBiometric()
         } else {

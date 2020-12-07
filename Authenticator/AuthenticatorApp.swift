@@ -22,7 +22,11 @@ struct AuthenticatorApp: App {
 
     var body: some Scene {
         WindowGroup {
-            StartView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            StartView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onOpenURL(perform: { url in
+                    print("URL deeplink")
+            })
         }
     }
     

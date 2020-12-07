@@ -12,6 +12,7 @@ import CoreData
 class HomeViewModel: ObservableObject {
     var context: NSManagedObjectContext?
 
+    @Published var showSettingsView: Bool = false
     @Published var showScanQRCodeView: Bool = false
     
     func delete(account: Account) {

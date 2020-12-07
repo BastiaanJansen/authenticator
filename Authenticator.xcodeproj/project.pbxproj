@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC4257CEBE600E2703D /* CodeGenerator.swift */; };
 		280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC9257CF85400E2703D /* AccountRow.swift */; };
+		283F5AAC257D3C7300489F44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AAB257D3C7300489F44 /* SettingsView.swift */; };
+		283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */; };
+		283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB8257D406900489F44 /* StartViewModel.swift */; };
+		283F5AD6257D4E7700489F44 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */; };
+		283F5ADB257D57C800489F44 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5ADA257D57C800489F44 /* ViewExtension.swift */; };
 		2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD6B257D070400D60A05 /* AddAccountView.swift */; };
 		2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD70257D072800D60A05 /* AddAccountViewModel.swift */; };
 		2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */; };
@@ -17,7 +22,7 @@
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
 		28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* StringExtension.swift */; };
 		28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */; };
-		28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF04257CC98F008E8FD6 /* ContentView.swift */; };
+		28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF04257CC98F008E8FD6 /* StartView.swift */; };
 		28FAEF07257CC991008E8FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FAEF06257CC991008E8FD6 /* Assets.xcassets */; };
 		28FAEF0A257CC991008E8FD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FAEF09257CC991008E8FD6 /* Preview Assets.xcassets */; };
 		28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF0B257CC991008E8FD6 /* Persistence.swift */; };
@@ -50,6 +55,10 @@
 /* Begin PBXFileReference section */
 		280C0DC4257CEBE600E2703D /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		280C0DC9257CF85400E2703D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
+		283F5AAB257D3C7300489F44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		283F5AB8257D406900489F44 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		283F5ADA257D57C800489F44 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		2875AD6B257D070400D60A05 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		2875AD70257D072800D60A05 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
 		2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
@@ -58,7 +67,7 @@
 		28C5ED17257CE385009BF851 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		28FAEEFF257CC98F008E8FD6 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
-		28FAEF04257CC98F008E8FD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		28FAEF04257CC98F008E8FD6 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		28FAEF06257CC991008E8FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28FAEF09257CC991008E8FD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		28FAEF0B257CC991008E8FD6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -82,6 +91,7 @@
 			files = (
 				28FAEF37257CCAFE008E8FD6 /* SwiftOTP in Frameworks */,
 				2875AD8A257D1F0500D60A05 /* CarBode in Frameworks */,
+				283F5AD6257D4E7700489F44 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +117,7 @@
 			children = (
 				28C5ED17257CE385009BF851 /* StringExtension.swift */,
 				2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */,
+				283F5ADA257D57C800489F44 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,9 +188,11 @@
 		28FAEF3B257CCB16008E8FD6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				283F5AB8257D406900489F44 /* StartViewModel.swift */,
 				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
 				2875AD70257D072800D60A05 /* AddAccountViewModel.swift */,
 				2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */,
+				283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -188,10 +201,11 @@
 			isa = PBXGroup;
 			children = (
 				28FAEF4D257CD25A008E8FD6 /* Components */,
-				28FAEF04257CC98F008E8FD6 /* ContentView.swift */,
+				28FAEF04257CC98F008E8FD6 /* StartView.swift */,
 				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
 				28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */,
 				2875AD6B257D070400D60A05 /* AddAccountView.swift */,
+				283F5AAB257D3C7300489F44 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +246,7 @@
 			packageProductDependencies = (
 				28FAEF36257CCAFE008E8FD6 /* SwiftOTP */,
 				2875AD89257D1F0500D60A05 /* CarBode */,
+				283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */,
 			);
 			productName = Authenticator;
 			productReference = 28FAEEFF257CC98F008E8FD6 /* Authenticator.app */;
@@ -307,6 +322,7 @@
 			packageReferences = (
 				28FAEF35257CCAFE008E8FD6 /* XCRemoteSwiftPackageReference "SwiftOTP" */,
 				2875AD88257D1F0500D60A05 /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */,
+				283F5AD4257D4E7700489F44 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = 28FAEF00257CC98F008E8FD6 /* Products */;
 			projectDirPath = "";
@@ -356,12 +372,16 @@
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
-				28FAEF05257CC98F008E8FD6 /* ContentView.swift in Sources */,
+				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
+				283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */,
 				28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */,
+				283F5AAC257D3C7300489F44 /* SettingsView.swift in Sources */,
 				2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */,
 				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,
+				283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */,
 				2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */,
+				283F5ADB257D57C800489F44 /* ViewExtension.swift in Sources */,
 				28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
 				28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */,
@@ -686,6 +706,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		283F5AD4257D4E7700489F44 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.1;
+			};
+		};
 		2875AD88257D1F0500D60A05 /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/heart/CarBode-Barcode-Scanner-For-SwiftUI";
@@ -705,6 +733,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283F5AD4257D4E7700489F44 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
 		2875AD89257D1F0500D60A05 /* CarBode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2875AD88257D1F0500D60A05 /* XCRemoteSwiftPackageReference "CarBode-Barcode-Scanner-For-SwiftUI" */;

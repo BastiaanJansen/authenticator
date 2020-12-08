@@ -21,6 +21,7 @@
 		2875AD8A257D1F0500D60A05 /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = 2875AD89257D1F0500D60A05 /* CarBode */; };
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
 		28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* StringExtension.swift */; };
+		28DC84DD257F8A9400121DD2 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */; };
 		28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */; };
 		28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF04257CC98F008E8FD6 /* StartView.swift */; };
 		28FAEF07257CC991008E8FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FAEF06257CC991008E8FD6 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
 		28C5ED17257CE385009BF851 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		28FAEEFF257CC98F008E8FD6 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
 		28FAEF04257CC98F008E8FD6 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				28C5ED17257CE385009BF851 /* StringExtension.swift */,
 				2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */,
 				283F5ADA257D57C800489F44 /* ViewExtension.swift */,
+				28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
 				283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */,
 				28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */,
+				28DC84DD257F8A9400121DD2 /* UserDefaultsExtension.swift in Sources */,
 				283F5AAC257D3C7300489F44 /* SettingsView.swift in Sources */,
 				2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */,
 				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,

@@ -16,15 +16,24 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
+                Section(footer: Text("Enable biometric authentication")) {
                     if let type = AuthenticatorApp.biometricType() {
                         Toggle(type == BiometricType.faceID ? "Face ID" : "Touch ID", isOn: $settingsVM.biometricAuthenticationIsEnabled)
                         
-                        if settingsVM.biometricAuthenticationIsEnabled {
-                            Toggle("Auto lock", isOn: $settingsVM.autoLockIsEnabled)
-                        }
+//                        if settingsVM.biometricAuthenticationIsEnabled {
+//                            Toggle("Auto lock", isOn: $settingsVM.autoLockIsEnabled)
+//                        }
                     }
-                    
+                }
+                
+                Section(footer: Text("Allow iOS widgets to show authorization codes. If enabled anyone with access to your phone can see authorization codes.")) {
+                    Toggle("Widgets", isOn: $settingsVM.widgetsAreEnabled)
+                }
+                
+                Section() {
+                    NavigationLink(destination: Text("Change app icon")) {
+                        Text("App icon")
+                    }
                 }
             }
             .navigationTitle("Settings")

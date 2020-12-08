@@ -18,7 +18,7 @@ class ScanQRCodeViewModel: ObservableObject {
     
     func foundBarcode(url: URL) {
         var map: [String: String] = [:]
-        let mustHaveKeys = ["issuer", "secret", "digits", "algorithm", "period"]
+        let mustHaveKeys = ["issuer", "secret", "period"]
         
         guard url.scheme == "otpauth" else { return }
        
@@ -28,7 +28,13 @@ class ScanQRCodeViewModel: ObservableObject {
         
         let path = url.path
         
-        map["name"] = String(path.split(separator: ":")[1])
+        let name = path.split(separator: ":")
+        
+        if name.count == 1 {
+            map["name"] = String(name[0])
+        } else {
+            map["name"] = String(name[1])
+        }
         
         let params = query.split(separator: "&")
         

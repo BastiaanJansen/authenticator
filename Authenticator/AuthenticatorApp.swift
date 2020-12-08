@@ -12,11 +12,13 @@ import LocalAuthentication
 @main
 struct AuthenticatorApp: App {
     let persistenceController = PersistenceController.shared
+    @Environment(\.colorScheme) var colorScheme
     
     init() {
-        UserDefaults.standard.register(defaults: [
-            "BiometricAuthenticationIsEnabled": false,
-            "AutoLockIsEnabled": false,
+        UserDefaults.standard.set(defaultValues: [
+            .biometricAuthenticationIsEnabled: false,
+            .autoLockIsEnabled: false,
+            .widgetsAreEnabled: false
         ])
     }
 
@@ -26,7 +28,7 @@ struct AuthenticatorApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onOpenURL(perform: { url in
                     print("URL deeplink")
-            })
+                })
         }
     }
     

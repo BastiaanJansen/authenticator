@@ -13,15 +13,17 @@
 		283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */; };
 		283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB8257D406900489F44 /* StartViewModel.swift */; };
 		283F5AD6257D4E7700489F44 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */; };
-		283F5ADB257D57C800489F44 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5ADA257D57C800489F44 /* ViewExtension.swift */; };
 		2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD6B257D070400D60A05 /* AddAccountView.swift */; };
 		2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD70257D072800D60A05 /* AddAccountViewModel.swift */; };
 		2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */; };
-		2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */; };
+		2875AD7B257D13A500D60A05 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD7A257D13A500D60A05 /* NSManagedObject+Extension.swift */; };
 		2875AD8A257D1F0500D60A05 /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = 2875AD89257D1F0500D60A05 /* CarBode */; };
+		28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5D6257FEA21007EA84B /* URL+Extension.swift */; };
+		28AAB5E8257FF14E007EA84B /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5E7257FF14E007EA84B /* Image+Extension.swift */; };
+		28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5EC257FF1D9007EA84B /* Constants.swift */; };
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
-		28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* StringExtension.swift */; };
-		28DC84DD257F8A9400121DD2 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */; };
+		28C5ED18257CE385009BF851 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* String+Extension.swift */; };
+		28DC84DD257F8A9400121DD2 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */; };
 		28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */; };
 		28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF04257CC98F008E8FD6 /* StartView.swift */; };
 		28FAEF07257CC991008E8FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FAEF06257CC991008E8FD6 /* Assets.xcassets */; };
@@ -59,14 +61,16 @@
 		283F5AAB257D3C7300489F44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		283F5AB8257D406900489F44 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
-		283F5ADA257D57C800489F44 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		2875AD6B257D070400D60A05 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		2875AD70257D072800D60A05 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
 		2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
-		2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
+		2875AD7A257D13A500D60A05 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
+		28AAB5D6257FEA21007EA84B /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		28AAB5E7257FF14E007EA84B /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		28AAB5EC257FF1D9007EA84B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
-		28C5ED17257CE385009BF851 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		28C5ED17257CE385009BF851 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		28FAEEFF257CC98F008E8FD6 /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorApp.swift; sourceTree = "<group>"; };
 		28FAEF04257CC98F008E8FD6 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -114,13 +118,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28AAB5D5257FE9A2007EA84B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				28C5ED16257CE36D009BF851 /* Extensions */,
+				28AAB5EC257FF1D9007EA84B /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		28AAB5F1257FF719007EA84B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				283F5AAB257D3C7300489F44 /* SettingsView.swift */,
+				283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		28AAB5F5257FF746007EA84B /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				28FAEF4F257CD28B008E8FD6 /* Account.swift */,
+				280C0DC9257CF85400E2703D /* AccountRow.swift */,
+				280C0DC4257CEBE600E2703D /* CodeGenerator.swift */,
+				28AAB5FE257FF7C9007EA84B /* AddAccount */,
+				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
+				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		28AAB5FA257FF7A8007EA84B /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */,
+				2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		28AAB5FE257FF7C9007EA84B /* AddAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2875AD6B257D070400D60A05 /* AddAccountView.swift */,
+				2875AD70257D072800D60A05 /* AddAccountViewModel.swift */,
+				28AAB5FA257FF7A8007EA84B /* QRCode */,
+			);
+			path = AddAccount;
+			sourceTree = "<group>";
+		};
 		28C5ED16257CE36D009BF851 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				28C5ED17257CE385009BF851 /* StringExtension.swift */,
-				2875AD7A257D13A500D60A05 /* NSManagedObjectExtension.swift */,
-				283F5ADA257D57C800489F44 /* ViewExtension.swift */,
-				28DC84DC257F8A9400121DD2 /* UserDefaultsExtension.swift */,
+				28C5ED17257CE385009BF851 /* String+Extension.swift */,
+				2875AD7A257D13A500D60A05 /* NSManagedObject+Extension.swift */,
+				28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */,
+				28AAB5D6257FEA21007EA84B /* URL+Extension.swift */,
+				28AAB5E7257FF14E007EA84B /* Image+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,10 +203,11 @@
 		28FAEF01257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
-				28C5ED16257CE36D009BF851 /* Extensions */,
-				28FAEF4E257CD26B008E8FD6 /* Models */,
-				28FAEF3F257CCB21008E8FD6 /* Views */,
-				28FAEF3B257CCB16008E8FD6 /* ViewModels */,
+				283F5AB8257D406900489F44 /* StartViewModel.swift */,
+				28FAEF04257CC98F008E8FD6 /* StartView.swift */,
+				28AAB5F5257FF746007EA84B /* Accounts */,
+				28AAB5F1257FF719007EA84B /* Settings */,
+				28AAB5D5257FE9A2007EA84B /* Helpers */,
 				28FAEF02257CC98F008E8FD6 /* AuthenticatorApp.swift */,
 				28FAEF06257CC991008E8FD6 /* Assets.xcassets */,
 				28FAEF0B257CC991008E8FD6 /* Persistence.swift */,
@@ -186,48 +242,6 @@
 				28FAEF26257CC991008E8FD6 /* Info.plist */,
 			);
 			path = AuthenticatorUITests;
-			sourceTree = "<group>";
-		};
-		28FAEF3B257CCB16008E8FD6 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				283F5AB8257D406900489F44 /* StartViewModel.swift */,
-				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
-				2875AD70257D072800D60A05 /* AddAccountViewModel.swift */,
-				2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */,
-				283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		28FAEF3F257CCB21008E8FD6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				28FAEF4D257CD25A008E8FD6 /* Components */,
-				28FAEF04257CC98F008E8FD6 /* StartView.swift */,
-				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
-				28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */,
-				2875AD6B257D070400D60A05 /* AddAccountView.swift */,
-				283F5AAB257D3C7300489F44 /* SettingsView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		28FAEF4D257CD25A008E8FD6 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				280C0DC9257CF85400E2703D /* AccountRow.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		28FAEF4E257CD26B008E8FD6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				28FAEF4F257CD28B008E8FD6 /* Account.swift */,
-				280C0DC4257CEBE600E2703D /* CodeGenerator.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,22 +384,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */,
+				28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */,
 				2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */,
 				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
+				28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
 				283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */,
-				28C5ED18257CE385009BF851 /* StringExtension.swift in Sources */,
-				28DC84DD257F8A9400121DD2 /* UserDefaultsExtension.swift in Sources */,
+				28C5ED18257CE385009BF851 /* String+Extension.swift in Sources */,
+				28DC84DD257F8A9400121DD2 /* UserDefaults+Extension.swift in Sources */,
 				283F5AAC257D3C7300489F44 /* SettingsView.swift in Sources */,
-				2875AD7B257D13A500D60A05 /* NSManagedObjectExtension.swift in Sources */,
+				2875AD7B257D13A500D60A05 /* NSManagedObject+Extension.swift in Sources */,
+				28AAB5E8257FF14E007EA84B /* Image+Extension.swift in Sources */,
 				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,
 				283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */,
 				2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */,
-				283F5ADB257D57C800489F44 /* ViewExtension.swift in Sources */,
 				28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
 				28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */,

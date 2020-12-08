@@ -33,4 +33,13 @@ class SettingsViewModel: ObservableObject {
         self.autoLockIsEnabled = UserDefaults.autoLockIsEnabled
         self.widgetsAreEnabled = UserDefaults.widgetsAreEnabled
     }
+    
+    func getAppVersion() -> String? {
+        guard let infoDictionary = Bundle.main.infoDictionary else { return nil }
+        if let version = infoDictionary["CFBundleShortVersionString"] as? String, let build = infoDictionary["CFBundleVersion"] as? String {
+            return "\(version) (\(build))"
+        }
+        
+        return nil
+    }
 }

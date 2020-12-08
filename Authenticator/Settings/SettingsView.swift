@@ -16,13 +16,13 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(footer: Text("Enable biometric authentication")) {
+                Section(header: Text("Security")) {
                     if let type = AuthenticatorApp.biometricType() {
                         Toggle(type == BiometricType.faceID ? "Face ID" : "Touch ID", isOn: $settingsVM.biometricAuthenticationIsEnabled)
                         
-//                        if settingsVM.biometricAuthenticationIsEnabled {
-//                            Toggle("Auto lock", isOn: $settingsVM.autoLockIsEnabled)
-//                        }
+                        if settingsVM.biometricAuthenticationIsEnabled {
+                            Toggle("Auto lock", isOn: $settingsVM.autoLockIsEnabled)
+                        }
                     }
                 }
                 
@@ -30,9 +30,25 @@ struct SettingsView: View {
                     Toggle("Widgets", isOn: $settingsVM.widgetsAreEnabled)
                 }
                 
-                Section() {
-                    NavigationLink(destination: Text("Change app icon")) {
+                Section(header: Text("Appearance")) {
+                    NavigationLink(destination:
+                        HStack {
+                            Text("Change app icon")
+                        }.navigationTitle("App icon")
+                    ) {
                         Text("App icon")
+                    }
+                }
+                
+                Section(header: Text("About")) {
+                    Button(action: {
+                        URL.open(link: URL.Link.github)
+                    }) {
+                        Text("GitHub")
+                    }
+                    
+                    HStack {
+                        Text("Version: \(settingsVM.getAppVersion() ?? "unknown")").font(.system(size: 12))
                     }
                 }
             }

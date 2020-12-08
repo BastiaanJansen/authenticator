@@ -21,6 +21,11 @@
 		28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5D6257FEA21007EA84B /* URL+Extension.swift */; };
 		28AAB5E8257FF14E007EA84B /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5E7257FF14E007EA84B /* Image+Extension.swift */; };
 		28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5EC257FF1D9007EA84B /* Constants.swift */; };
+		28AAB607257FF9F3007EA84B /* AppIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB606257FF9F3007EA84B /* AppIconService.swift */; };
+		28AAB60F257FFB0C007EA84B /* AlternateAppIconsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB60E257FFB0C007EA84B /* AlternateAppIconsListView.swift */; };
+		28AAB62925800113007EA84B /* BlackIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AAB62725800113007EA84B /* BlackIcon.png */; };
+		28AAB62A25800113007EA84B /* DarkPlumIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AAB62825800113007EA84B /* DarkPlumIcon.png */; };
+		28AAB62F2580014C007EA84B /* IndigoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AAB62E2580014C007EA84B /* IndigoIcon.png */; };
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
 		28C5ED18257CE385009BF851 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* String+Extension.swift */; };
 		28DC84DD257F8A9400121DD2 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */; };
@@ -68,6 +73,11 @@
 		28AAB5D6257FEA21007EA84B /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		28AAB5E7257FF14E007EA84B /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		28AAB5EC257FF1D9007EA84B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		28AAB606257FF9F3007EA84B /* AppIconService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconService.swift; sourceTree = "<group>"; };
+		28AAB60E257FFB0C007EA84B /* AlternateAppIconsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternateAppIconsListView.swift; sourceTree = "<group>"; };
+		28AAB62725800113007EA84B /* BlackIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackIcon.png; sourceTree = "<group>"; };
+		28AAB62825800113007EA84B /* DarkPlumIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkPlumIcon.png; sourceTree = "<group>"; };
+		28AAB62E2580014C007EA84B /* IndigoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndigoIcon.png; sourceTree = "<group>"; };
 		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
 		28C5ED17257CE385009BF851 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 		28AAB5F1257FF719007EA84B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				28AAB605257FF9DC007EA84B /* Alternate Icons */,
 				283F5AAB257D3C7300489F44 /* SettingsView.swift */,
 				283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */,
 			);
@@ -168,6 +179,25 @@
 			path = AddAccount;
 			sourceTree = "<group>";
 		};
+		28AAB605257FF9DC007EA84B /* Alternate Icons */ = {
+			isa = PBXGroup;
+			children = (
+				28AAB606257FF9F3007EA84B /* AppIconService.swift */,
+				28AAB60E257FFB0C007EA84B /* AlternateAppIconsListView.swift */,
+			);
+			path = "Alternate Icons";
+			sourceTree = "<group>";
+		};
+		28AAB613257FFE7E007EA84B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28AAB62E2580014C007EA84B /* IndigoIcon.png */,
+				28AAB62725800113007EA84B /* BlackIcon.png */,
+				28AAB62825800113007EA84B /* DarkPlumIcon.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		28C5ED16257CE36D009BF851 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +233,7 @@
 		28FAEF01257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				28AAB613257FFE7E007EA84B /* Resources */,
 				283F5AB8257D406900489F44 /* StartViewModel.swift */,
 				28FAEF04257CC98F008E8FD6 /* StartView.swift */,
 				28AAB5F5257FF746007EA84B /* Accounts */,
@@ -357,8 +388,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AAB62A25800113007EA84B /* DarkPlumIcon.png in Resources */,
 				28FAEF0A257CC991008E8FD6 /* Preview Assets.xcassets in Resources */,
+				28AAB62F2580014C007EA84B /* IndigoIcon.png in Resources */,
 				28FAEF07257CC991008E8FD6 /* Assets.xcassets in Resources */,
+				28AAB62925800113007EA84B /* BlackIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,10 +418,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FAEF0C257CC991008E8FD6 /* Persistence.swift in Sources */,
+				28AAB607257FF9F3007EA84B /* AppIconService.swift in Sources */,
 				28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */,
 				2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */,
 				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
+				28AAB60F257FFB0C007EA84B /* AlternateAppIconsListView.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
 				28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,

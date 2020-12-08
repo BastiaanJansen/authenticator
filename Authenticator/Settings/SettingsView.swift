@@ -31,11 +31,7 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Appearance")) {
-                    NavigationLink(destination:
-                        HStack {
-                            Text("Change app icon")
-                        }.navigationTitle("App icon")
-                    ) {
+                    NavigationLink(destination: AlternateAppIconsListView()) {
                         Text("App icon")
                     }
                 }

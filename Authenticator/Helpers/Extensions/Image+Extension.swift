@@ -9,8 +9,9 @@ import SwiftUI
 
 extension Image {
     enum IconName: String {
-        case vibrant
-        case dark
+        case indigo
+        case black
+        case ripePlum
     }
     
     init(iconName: IconName) {

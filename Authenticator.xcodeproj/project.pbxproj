@@ -19,6 +19,12 @@
 		2875AD7B257D13A500D60A05 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD7A257D13A500D60A05 /* NSManagedObject+Extension.swift */; };
 		2875AD8A257D1F0500D60A05 /* CarBode in Frameworks */ = {isa = PBXBuildFile; productRef = 2875AD89257D1F0500D60A05 /* CarBode */; };
 		288B453F2581147900664297 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B453E2581147900664297 /* SettingsRowView.swift */; };
+		288B454525811F6500664297 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B454425811F6500664297 /* PasscodeView.swift */; };
+		288B45512581230F00664297 /* IfViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B45502581230F00664297 /* IfViewModifier.swift */; };
+		288B45562581300400664297 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B45552581300400664297 /* DotView.swift */; };
+		288B455B2581303100664297 /* PasscodeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B455A2581303100664297 /* PasscodeButtonView.swift */; };
+		288B45732581447200664297 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B45722581447200664297 /* NumpadView.swift */; };
+		288B45782581457800664297 /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B45772581457800664297 /* PasscodeViewModel.swift */; };
 		28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5D6257FEA21007EA84B /* URL+Extension.swift */; };
 		28AAB5E8257FF14E007EA84B /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5E7257FF14E007EA84B /* Image+Extension.swift */; };
 		28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5EC257FF1D9007EA84B /* Constants.swift */; };
@@ -72,6 +78,12 @@
 		2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
 		2875AD7A257D13A500D60A05 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		288B453E2581147900664297 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		288B454425811F6500664297 /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
+		288B45502581230F00664297 /* IfViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfViewModifier.swift; sourceTree = "<group>"; };
+		288B45552581300400664297 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		288B455A2581303100664297 /* PasscodeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeButtonView.swift; sourceTree = "<group>"; };
+		288B45722581447200664297 /* NumpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
+		288B45772581457800664297 /* PasscodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
 		28AAB5D6257FEA21007EA84B /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		28AAB5E7257FF14E007EA84B /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		28AAB5EC257FF1D9007EA84B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -130,9 +142,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288B454325811F5000664297 /* Lockscreen */ = {
+			isa = PBXGroup;
+			children = (
+				288B454425811F6500664297 /* PasscodeView.swift */,
+				288B45772581457800664297 /* PasscodeViewModel.swift */,
+				288B45552581300400664297 /* DotView.swift */,
+				288B455A2581303100664297 /* PasscodeButtonView.swift */,
+				288B45722581447200664297 /* NumpadView.swift */,
+			);
+			path = Lockscreen;
+			sourceTree = "<group>";
+		};
+		288B454C258121FE00664297 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				288B45502581230F00664297 /* IfViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		28AAB5D5257FE9A2007EA84B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				288B454C258121FE00664297 /* ViewModifiers */,
 				28C5ED16257CE36D009BF851 /* Extensions */,
 				28AAB5EC257FF1D9007EA84B /* Constants.swift */,
 			);
@@ -236,6 +269,7 @@
 		28FAEF01257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				288B454325811F5000664297 /* Lockscreen */,
 				28AAB613257FFE7E007EA84B /* Resources */,
 				283F5AB8257D406900489F44 /* StartViewModel.swift */,
 				28FAEF04257CC98F008E8FD6 /* StartView.swift */,
@@ -424,8 +458,11 @@
 				28AAB607257FF9F3007EA84B /* AppIconService.swift in Sources */,
 				28AAB5ED257FF1D9007EA84B /* Constants.swift in Sources */,
 				2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */,
+				288B45512581230F00664297 /* IfViewModifier.swift in Sources */,
 				28FAEF49257CCB84008E8FD6 /* HomeViewModel.swift in Sources */,
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
+				288B45732581447200664297 /* NumpadView.swift in Sources */,
+				288B455B2581303100664297 /* PasscodeButtonView.swift in Sources */,
 				28AAB60F257FFB0C007EA84B /* AlternateAppIconsListView.swift in Sources */,
 				288B453F2581147900664297 /* SettingsRowView.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
@@ -433,6 +470,7 @@
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
+				288B45782581457800664297 /* PasscodeViewModel.swift in Sources */,
 				283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */,
 				28C5ED18257CE385009BF851 /* String+Extension.swift in Sources */,
 				28DC84DD257F8A9400121DD2 /* UserDefaults+Extension.swift in Sources */,
@@ -441,9 +479,11 @@
 				28AAB5E8257FF14E007EA84B /* Image+Extension.swift in Sources */,
 				280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */,
 				283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */,
+				288B45562581300400664297 /* DotView.swift in Sources */,
 				2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */,
 				28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */,
 				28FAEF03257CC98F008E8FD6 /* AuthenticatorApp.swift in Sources */,
+				288B454525811F6500664297 /* PasscodeView.swift in Sources */,
 				28FAEF50257CD28B008E8FD6 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

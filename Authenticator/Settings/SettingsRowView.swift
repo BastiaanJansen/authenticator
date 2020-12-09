@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsRowView: View {
     var text: String
-    var textColor: Color = .black
+    var textColor: Color?
     var icon: Image?
     var iconColor: Color = .accentColor
     var iconSize: Image.Scale = .large
@@ -21,7 +21,9 @@ struct SettingsRowView: View {
             }
             
             VStack(alignment: .leading) {
-                Text(text).foregroundColor(textColor)
+                Text(text).if(textColor != nil) {
+                    $0.foregroundColor(textColor)
+                }
             }
         }
     }

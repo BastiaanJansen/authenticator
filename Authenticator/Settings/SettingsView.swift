@@ -100,6 +100,7 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SettingsView()
+            SettingsView().preferredColorScheme(.dark)
             SettingsView().previewDevice(PreviewDevice(rawValue: "iPhone 8"))
         }
     }

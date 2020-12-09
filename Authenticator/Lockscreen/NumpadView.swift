@@ -10,7 +10,7 @@ import SwiftUI
 struct NumpadView: View {
     var maxCodeLength: Int = 6
     var biometricButton: Bool = true
-    var onSubmit: () -> Void
+    var onSubmit: () -> Bool
     var onBiometricAuthentication: () -> Void
     
     @State var code: [Int] = []
@@ -61,8 +61,13 @@ struct NumpadView: View {
     func addToCode(number: Int) {
         if code.count < maxCodeLength {
             code.append(number)
-        } else {
-            onSubmit()
+        }
+        
+        if code.count == maxCodeLength {
+            let result = onSubmit()
+            if !result {
+                code.removeAll()
+            }
         }
     }
     
@@ -80,7 +85,7 @@ struct NumpadView: View {
 struct Numpad_Previews: PreviewProvider {
     static var previews: some View {
         NumpadView(onSubmit: {
-            print("Submitted")
+            return true
         }, onBiometricAuthentication: {
             print("Biometric authentication")
         })

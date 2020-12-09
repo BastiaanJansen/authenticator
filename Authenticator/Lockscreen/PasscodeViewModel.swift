@@ -9,8 +9,9 @@ import Foundation
 
 class PasscodeViewModel: ObservableObject {
     
-    func validateCode() {
+    func validateCode() -> Bool {
         print("Validating code...")
+        return false
     }
     
     func biometricAuthentication() {

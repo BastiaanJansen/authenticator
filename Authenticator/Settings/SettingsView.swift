@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LocalAuthentication
+import UIKit
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -16,35 +17,70 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
+                
                 Section(header: Text("Security")) {
                     if let type = AuthenticatorApp.biometricType() {
-                        Toggle(type == BiometricType.faceID ? "Face ID" : "Touch ID", isOn: $settingsVM.biometricAuthenticationIsEnabled)
+                        Toggle(isOn: $settingsVM.biometricAuthenticationIsEnabled) {
+                            SettingsRowView(
+                                text: type == .faceID ? "Face ID" : "Touch ID",
+                                icon: Image(systemName: type == BiometricType.faceID ? "faceid" : "touchid"),
+                                iconColor: type == .faceID ? .green : .red
+                            )
+                        }
                         
                         if settingsVM.biometricAuthenticationIsEnabled {
-                            Toggle("Auto lock", isOn: $settingsVM.autoLockIsEnabled)
+                            Toggle(isOn: $settingsVM.autoLockIsEnabled) {
+                                SettingsRowView(
+                                    text: "Auto-Lock",
+                                    icon: Image(systemName: "lock"),
+                                    iconColor: .red
+                                )
+                            }
                         }
                     }
                 }
                 
-                Section(footer: Text("Allow iOS widgets to show authorization codes. If enabled anyone with access to your phone can see authorization codes.")) {
-                    Toggle("Widgets", isOn: $settingsVM.widgetsAreEnabled)
+                Section(footer: Text("Enabling Widgets will allow you to add accounts to your widgets on your Home Screen.")) {
+                    Toggle(isOn: $settingsVM.widgetsAreEnabled) {
+                        SettingsRowView(
+                            text: "Widgets",
+                            icon: Image(systemName: "rectangle.grid.1x2.fill"),
+                            iconColor: .blue
+                        )
+                    }
+                }
+                
+                Section(footer: Text("Enabling Apple Watch will allow you to add accounts to your watch.")) {
+                    Toggle(isOn: $settingsVM.appleWatchIsEnabled) {
+                        SettingsRowView(
+                            text: "Apple Watch",
+                            icon: Image(systemName: "applewatch"),
+                            iconColor: .gray
+                        )
+                    }
                 }
                 
                 Section(header: Text("Appearance")) {
                     NavigationLink(destination: AlternateAppIconsListView()) {
-                        Text("App icon")
+                        SettingsRowView(
+                            text: "App icon",
+                            icon: Image(systemName: "app"),
+                            iconColor: .accentColor
+                        )
                     }
+                    
                 }
                 
-                Section(header: Text("About")) {
+                Section(header: Text("About"), footer: Text("Version: \(settingsVM.getAppVersion() ?? "unknown")")) {
                     Button(action: {
                         URL.open(link: URL.Link.github)
                     }) {
-                        Text("GitHub")
-                    }
-                    
-                    HStack {
-                        Text("Version: \(settingsVM.getAppVersion() ?? "unknown")").font(.system(size: 12))
+                        SettingsRowView(
+                            text: "GitHub",
+                            icon: Image(systemName: "link"),
+                            iconColor: .accentColor,
+                            iconSize: .medium
+                        )
                     }
                 }
             }
@@ -62,6 +98,9 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        Group {
+            SettingsView()
+            SettingsView().previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+        }
     }
 }

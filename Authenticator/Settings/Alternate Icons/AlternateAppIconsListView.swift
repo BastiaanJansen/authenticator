@@ -23,7 +23,7 @@ struct AlternateAppIconsListView: View {
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: 65, height: 65)
-                            .cornerRadius(10)
+                            .cornerRadius(15)
                     }
                 }
             }

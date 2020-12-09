@@ -28,10 +28,17 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
+    @Published var appleWatchIsEnabled: Bool {
+        didSet {
+            
+        }
+    }
+    
     init() {
         self.biometricAuthenticationIsEnabled = UserDefaults.biometricAuthenticationIsEnabled
         self.autoLockIsEnabled = UserDefaults.autoLockIsEnabled
         self.widgetsAreEnabled = UserDefaults.widgetsAreEnabled
+        self.appleWatchIsEnabled = false
     }
     
     func getAppVersion() -> String? {

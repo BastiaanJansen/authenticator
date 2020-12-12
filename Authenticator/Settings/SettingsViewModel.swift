@@ -7,11 +7,8 @@
 
 import SwiftUI
 import SwiftKeychainWrapper
-import Combine
 
 class SettingsViewModel: ObservableObject {
-    let didChange = PassthroughSubject<Void, Never>()
-    
     @Published var biometricAuthenticationIsEnabled: Bool {
         didSet {
             if !biometricAuthenticationIsEnabled {
@@ -59,9 +56,5 @@ class SettingsViewModel: ObservableObject {
         }
         
         return nil
-    }
-    
-    private func update() {
-        didChange.send(())
     }
 }

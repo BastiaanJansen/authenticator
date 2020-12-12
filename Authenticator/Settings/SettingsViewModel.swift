@@ -7,12 +7,23 @@
 
 import SwiftUI
 import SwiftKeychainWrapper
-import LocalAuthentication
+import Combine
 
 class SettingsViewModel: ObservableObject {
+    let didChange = PassthroughSubject<Void, Never>()
+    
     @Published var biometricAuthenticationIsEnabled: Bool {
         didSet {
-            UserDefaults.biometricAuthenticationIsEnabled = biometricAuthenticationIsEnabled
+            if !biometricAuthenticationIsEnabled {
+                let authService = BiometricAuthService(reason: "Unlock to change setting")
+                authService.authenticate { [self] (success, error) in
+                    if !success {
+                        DispatchQueue.main.async {
+                            biometricAuthenticationIsEnabled = oldValue
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -48,5 +59,9 @@ class SettingsViewModel: ObservableObject {
         }
         
         return nil
+    }
+    
+    private func update() {
+        didChange.send(())
     }
 }

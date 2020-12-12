@@ -20,7 +20,8 @@ struct StartView: View {
                 startVM.authenticateBiometric()
             }) {
                 HStack {
-                    Image(systemName: AuthenticatorApp.biometricType() == BiometricType.faceID ? "faceid" : "touchid")
+                    Image(systemName: BiometricAuthService
+                            .getType() == .faceID ? "faceid" : "touchid")
                     Text("Unlock")
                 }
             }

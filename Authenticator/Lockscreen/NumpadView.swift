@@ -41,7 +41,7 @@ struct NumpadView: View {
                 Group {
                     PasscodeButtonView(
                         background: false,
-                        content: Image(systemName: AuthenticatorApp.biometricType() == .faceID ? "faceid" : "touchid").imageScale(.large).foregroundColor(AuthenticatorApp.biometricType() == .faceID ? .green : .red),
+                        content: Image(systemName: BiometricAuthService.getType() == .faceID ? "faceid" : "touchid").imageScale(.large).foregroundColor(BiometricAuthService.getType() == .faceID ? .green : .red),
                         onClick: onBiometricAuthentication
                     )
                     PasscodeButtonView(

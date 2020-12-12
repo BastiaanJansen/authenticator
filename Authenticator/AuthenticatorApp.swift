@@ -32,29 +32,4 @@ struct AuthenticatorApp: App {
 //            PasscodeView()
         }
     }
-    
-    static func biometricType() -> BiometricType {
-        let authContext = LAContext()
-        if #available(iOS 11, *) {
-            let _ = authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-            switch(authContext.biometryType) {
-            case .none:
-                return BiometricType.none
-            case .touchID:
-                return BiometricType.touchID
-            case .faceID:
-                return BiometricType.faceID
-            @unknown default:
-                return BiometricType.none
-            }
-        } else {
-            return authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? .touchID : .none
-        }
-    }
-}
-
-enum BiometricType {
-    case none
-    case touchID
-    case faceID
 }

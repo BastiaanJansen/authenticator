@@ -28,18 +28,12 @@ class StartViewModel: ObservableObject {
     }
     
     func authenticateBiometric() {
-        let context = LAContext()
-        var error: NSError?
+        let authService = BiometricAuthService(reason: "Use biometrics to unlock your data")
         
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Use biometrics to unlock your data"
-            
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // authentication has now completed
-                DispatchQueue.main.async {
-                    if success {
-                        self.isUnlocked = true
-                    }
+        authService.authenticate { (success, error) in
+            DispatchQueue.main.async {
+                if success {
+                    self.isUnlocked = true
                 }
             }
         }

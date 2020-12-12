@@ -19,14 +19,14 @@ struct SettingsView: View {
             Form {
                 
                 Section(header: Text("Security")) {
-                    if let type = AuthenticatorApp.biometricType() {
+                    if let type = BiometricAuthService.getType() {
                         Toggle(isOn: $settingsVM.biometricAuthenticationIsEnabled) {
                             SettingsRowView(
                                 text: type == .faceID ? "Face ID" : "Touch ID",
-                                icon: Image(systemName: type == BiometricType.faceID ? "faceid" : "touchid"),
+                                icon: Image(systemName: type == .faceID ? "faceid" : "touchid"),
                                 iconColor: type == .faceID ? .green : .red
                             )
-                        }
+                        }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         
                         if settingsVM.biometricAuthenticationIsEnabled {
                             Toggle(isOn: $settingsVM.autoLockIsEnabled) {
@@ -35,7 +35,7 @@ struct SettingsView: View {
                                     icon: Image(systemName: "lock"),
                                     iconColor: .red
                                 )
-                            }
+                            }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         }
                     }
                 }
@@ -47,7 +47,7 @@ struct SettingsView: View {
                             icon: Image(systemName: "rectangle.grid.1x2.fill"),
                             iconColor: .blue
                         )
-                    }
+                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 }
                 
                 Section(footer: Text("Enabling Apple Watch will allow you to add accounts to your watch.")) {
@@ -57,7 +57,7 @@ struct SettingsView: View {
                             icon: Image(systemName: "applewatch"),
                             iconColor: .gray
                         )
-                    }
+                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 }
                 
                 Section(header: Text("Appearance")) {

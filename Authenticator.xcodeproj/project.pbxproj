@@ -35,6 +35,7 @@
 		28AAB62F2580014C007EA84B /* IndigoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28AAB62E2580014C007EA84B /* IndigoIcon.png */; };
 		28AEDA3B2584C9E6004EA2DA /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AEDA3A2584C9E6004EA2DA /* BiometricAuthService.swift */; };
 		28AEDA442584CE33004EA2DA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AEDA432584CE33004EA2DA /* AuthService.swift */; };
+		28AEDA4C2584E7AD004EA2DA /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AEDA4B2584E7AD004EA2DA /* View+Extension.swift */; };
 		28C5ED12257CDF71009BF851 /* ScanQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */; };
 		28C5ED18257CE385009BF851 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C5ED17257CE385009BF851 /* String+Extension.swift */; };
 		28DABA56258164380095EDF1 /* PasscodeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DABA55258164380095EDF1 /* PasscodeAuthService.swift */; };
@@ -97,6 +98,7 @@
 		28AAB62E2580014C007EA84B /* IndigoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IndigoIcon.png; sourceTree = "<group>"; };
 		28AEDA3A2584C9E6004EA2DA /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
 		28AEDA432584CE33004EA2DA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		28AEDA4B2584E7AD004EA2DA /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		28C5ED11257CDF71009BF851 /* ScanQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeView.swift; sourceTree = "<group>"; };
 		28C5ED17257CE385009BF851 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		28DABA55258164380095EDF1 /* PasscodeAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeAuthService.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				28DC84DC257F8A9400121DD2 /* UserDefaults+Extension.swift */,
 				28AAB5D6257FEA21007EA84B /* URL+Extension.swift */,
 				28AAB5E7257FF14E007EA84B /* Image+Extension.swift */,
+				28AEDA4B2584E7AD004EA2DA /* View+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				28AAB60F257FFB0C007EA84B /* AlternateAppIconsListView.swift in Sources */,
 				288B453F2581147900664297 /* SettingsRowView.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
+				28AEDA4C2584E7AD004EA2DA /* View+Extension.swift in Sources */,
 				28AAB5D7257FEA21007EA84B /* URL+Extension.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,

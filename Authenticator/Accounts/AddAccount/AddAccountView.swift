@@ -24,7 +24,46 @@ struct AddAccountView: View {
                     TextField("Name", text: $addAccountVM.name)
                     TextField("Key", text: $addAccountVM.key)
                 }
+                
+                Section(header: Text("Advanced options")) {
+                    Toggle(isOn: $addAccountVM.showAdvancedOptions) {
+                        Text("Advanced options")
+                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+                    
+                    if addAccountVM.showAdvancedOptions {
+                        Group {
+                            HStack {
+                                Text("Algorithm")
+                                Picker("", selection: $addAccountVM.algorithm) {
+                                    ForEach(Algorithm.allCases, id: \.self) { algorithm in
+                                        Text(algorithm.rawValue)
+                                    }
+                                }.pickerStyle(SegmentedPickerStyle())
+                            }
+                            
+                            HStack {
+                                Text("Digits")
+                                Picker("", selection: $addAccountVM.digits) {
+                                    ForEach(Digit.allCases, id: \.self) { digit in
+                                        Text(String(digit.rawValue))
+                                    }
+                                }.pickerStyle(SegmentedPickerStyle())
+                            }
+                            
+                            HStack {
+                                Text("Interval")
+                                Spacer()
+                                TextField("", value: $addAccountVM.interval, formatter: NumberFormatter())
+                                    .keyboardType(.numberPad)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                        }
+                    }
+                }
             }
+            .gesture(DragGesture().onChanged { _ in
+                self.hideKeyboard()
+            })
             .navigationTitle("Add account")
             .navigationBarItems(leading: Button(action: {
                 self.presentationMode.wrappedValue.dismiss()

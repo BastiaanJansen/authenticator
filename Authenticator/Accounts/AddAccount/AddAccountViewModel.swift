@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftKeychainWrapper
+import SwiftOTP
 
 class AddAccountViewModel: ObservableObject {
     var context: NSManagedObjectContext?
@@ -16,10 +17,19 @@ class AddAccountViewModel: ObservableObject {
     @Published var name: String
     @Published var key: String
     
-    init(service: String = "", name: String = "", key: String = "") {
+    @Published var showAdvancedOptions: Bool
+    @Published var algorithm: Algorithm
+    @Published var digits: Digit
+    @Published var interval: Int
+    
+    init(service: String = "", name: String = "", key: String = "", algorithm: Algorithm = .sha1, digits: Digit = .six, interval: Int = 30) {
         self.service = service
         self.name = name
         self.key = key
+        self.showAdvancedOptions = false
+        self.algorithm = algorithm
+        self.digits = digits
+        self.interval = interval
     }
     
     func add() {
@@ -29,4 +39,15 @@ class AddAccountViewModel: ObservableObject {
         
         context.saveContext()
     }
+}
+
+enum Algorithm: String, CaseIterable {
+    case sha1 = "SHA1"
+    case sha256 = "SHA256"
+    case sha512 = "SHA512"
+}
+
+enum Digit: Int, CaseIterable {
+    case six = 6
+    case eight = 8
 }

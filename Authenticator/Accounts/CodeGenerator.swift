@@ -9,18 +9,30 @@ import Foundation
 import SwiftOTP
 
 class CodeGenerator {
+    public static let shared = CodeGenerator()
     private(set) var digits: Int
     private(set) var timeInterval: Int
     private(set) var algorithm: OTPAlgorithm
     
-    init(digits: Int = 6, timeInterval: Int = 30, algorithm: OTPAlgorithm = .sha1) {
+    init(digits: Int = 6, timeInterval: Int = 30, algorithm: Algorithm = .sha1) {
         self.digits = digits
         self.timeInterval = timeInterval
-        self.algorithm = algorithm
+        
+        switch algorithm {
+        case .sha1:
+            self.algorithm = OTPAlgorithm.sha1
+            break
+        case .sha256:
+            self.algorithm = OTPAlgorithm.sha256
+            break
+        case .sha512:
+            self.algorithm = OTPAlgorithm.sha512
+            break
+        }
     }
     
-    func generate(key: String) -> String? {
-        guard let data = base32DecodeToData(key) else { return nil }
+    func generate(forKey: String) -> String? {
+        guard let data = base32DecodeToData(forKey) else { return nil }
         
         guard let totp = TOTP(secret: data, digits: self.digits, timeInterval: self.timeInterval, algorithm: self.algorithm) else { return nil }
         

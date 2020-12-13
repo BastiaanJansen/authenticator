@@ -11,8 +11,6 @@ import SwiftKeychainWrapper
 import SwiftOTP
 
 class AddAccountViewModel: ObservableObject {
-    var context: NSManagedObjectContext?
-    
     @Published var service: String
     @Published var name: String
     @Published var key: String
@@ -33,21 +31,8 @@ class AddAccountViewModel: ObservableObject {
     }
     
     func add() {
-        guard let context = self.context else { fatalError("Context is not set") }
+        let account = Account(service: self.service, name: self.name, key: self.key, digits: self.digits.rawValue, timeInterval: self.interval, algorithm: self.algorithm)
         
-        let _ = Account(context: context, service: self.service, name: self.name, key: self.key)
-        
-        context.saveContext()
+        AccountService.shared.save(from: account)
     }
-}
-
-enum Algorithm: String, CaseIterable {
-    case sha1 = "SHA1"
-    case sha256 = "SHA256"
-    case sha512 = "SHA512"
-}
-
-enum Digit: Int, CaseIterable {
-    case six = 6
-    case eight = 8
 }

@@ -60,7 +60,7 @@ class ScanQRCodeViewModel: ObservableObject {
     
     func createAccount(service: String, name: String, key: String) -> Account {
         guard let context = self.context else { fatalError("Context is not set") }
-        let account = Account(context: context, service: service, name: name, key: key)
+        let account = Account(service: service, name: name, key: key)
         
         context.saveContext()
         

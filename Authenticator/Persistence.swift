@@ -14,7 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<3 {
-            let newItem = Account(context: viewContext, service: "Service name", name: "Account name", key: "DREERRRR")
+            
         }
         do {
             try viewContext.save()

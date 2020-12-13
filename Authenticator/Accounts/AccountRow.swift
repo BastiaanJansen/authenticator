@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AccountRow: View {
     @ObservedObject var account: Account
+    @State var secondsUntilRefresh = 0
+    @State var code: String?
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -21,14 +24,32 @@ struct AccountRow: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(account.code ?? "No code").font(.title2).bold()
-                Text(String(account.secondsUntilRefresh)).foregroundColor(.accentColor).bold()
+                Text(code?.separate(every: 3, with: " ") ?? "No code")
+                    .font(.title2)
+                    .bold()
+                Text(String(secondsUntilRefresh))
+                    .bold()
+                    .if(secondsUntilRefresh > 5) {
+                        $0.foregroundColor(.accentColor)
+                    }
+                    .if(secondsUntilRefresh <= 5) {
+                        $0.foregroundColor(.red)
+                    }
             }
+        }
+        .onAppear {
+            self.code = account.generateCode()
         }
         .padding(.top, 5)
         .padding(.bottom, 5)
-        .onReceive(timer, perform: { date in
-            self.account.update()
+        .onReceive(timer, perform: { _ in
+            let remainder = account.calculateSecondsUntilRefresh()
+            self.secondsUntilRefresh = remainder
+    
+            if remainder == account.timeInterval {
+                self.code = account.generateCode()
+                self.secondsUntilRefresh = account.timeInterval
+            }
         })
     }
 }
@@ -36,7 +57,7 @@ struct AccountRow: View {
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
-        let account = Account.init(context: context, service: "Test service", name: "email@mail.com", key: "DREERRRR")
+        let account = Account.init(service: "Test service", name: "email@mail.com", key: "DREERRRR")
         return AccountRow(account: account).environment(\.managedObjectContext, context)
     }
 }

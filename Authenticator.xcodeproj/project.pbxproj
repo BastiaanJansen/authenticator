@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280B2DD325864931008DF33B /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280B2DD225864931008DF33B /* AccountService.swift */; };
 		280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC4257CEBE600E2703D /* CodeGenerator.swift */; };
 		280C0DCA257CF85400E2703D /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC9257CF85400E2703D /* AccountRow.swift */; };
 		283F5AAC257D3C7300489F44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AAB257D3C7300489F44 /* SettingsView.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280B2DD225864931008DF33B /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
 		280C0DC4257CEBE600E2703D /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		280C0DC9257CF85400E2703D /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
 		283F5AAB257D3C7300489F44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				28AAB5FE257FF7C9007EA84B /* AddAccount */,
 				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
 				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
+				280B2DD225864931008DF33B /* AccountService.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				280C0DC5257CEBE700E2703D /* CodeGenerator.swift in Sources */,
 				288B45732581447200664297 /* NumpadView.swift in Sources */,
 				288B455B2581303100664297 /* PasscodeButtonView.swift in Sources */,
+				280B2DD325864931008DF33B /* AccountService.swift in Sources */,
 				28AAB60F257FFB0C007EA84B /* AlternateAppIconsListView.swift in Sources */,
 				288B453F2581147900664297 /* SettingsRowView.swift in Sources */,
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,

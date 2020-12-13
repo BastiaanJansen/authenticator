@@ -9,58 +9,43 @@ import Foundation
 import SwiftOTP
 import CoreData
 
-class Account: NSManagedObject, Identifiable {
-    @NSManaged private(set) var id: UUID
-    @NSManaged private(set) var service: String
-    @NSManaged private(set) var name: String
-    @NSManaged private(set) var key: String
-    private var generator: CodeGenerator = CodeGenerator()
+class Account: ObservableObject, Codable, Identifiable {
+    var id: UUID
+    var service: String
+    var name: String
+    var key: String
     
-    @Published var secondsUntilRefresh: Int = 0
-    @Published var code: String?
+    var digits: Int
+    var timeInterval: Int
+    var algorithm: Algorithm
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Account> {
-        return NSFetchRequest<Account>(entityName: "Account")
-    }
-    
-    @objc
-    private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertInto: context)
-        self.setCode()
-        self.update()
-    }
-    
-    convenience init(context: NSManagedObjectContext, service: String, name: String, key: String) {
-        self.init(context: context)
-        
+    init(service: String, name: String, key: String, digits: Int = 6, timeInterval: Int = 30, algorithm: Algorithm = .sha1) {
         self.id = UUID()
         self.service = service
         self.name = name
         self.key = key
-        
-        self.setCode()
+        self.digits = digits
+        self.timeInterval = timeInterval
+        self.algorithm = algorithm
+    }
+    
+    func generateCode() -> String? {
+        let generator: CodeGenerator = CodeGenerator(digits: digits, timeInterval: timeInterval, algorithm: algorithm)
+        return generator.generate(forKey: self.key)
+    }
+    
+    func calculateSecondsUntilRefresh() -> Int {
+        return timeInterval - Int(floor(Date().timeIntervalSince1970)) % timeInterval
     }
 }
 
-extension Account {
-    func update() {
-        objectWillChange.send()
-        let remainder = self.calculateSecondsUntilRefresh()
-        self.secondsUntilRefresh = remainder
-        
-        if remainder == self.generator.timeInterval {
-            self.setCode()
-            self.secondsUntilRefresh = self.generator.timeInterval
-        }
-    }
-    
-    private func calculateSecondsUntilRefresh() -> Int {
-        return generator.timeInterval - Int(floor(Date().timeIntervalSince1970)) % generator.timeInterval
-    }
-    
-    
-    private func setCode() {
-        let code: String? = self.generator.generate(key: self.key)
-        self.code = code?.separate(every: 3, with: " ") ?? code
-    }
+enum Algorithm: String, CaseIterable, Codable {
+    case sha1 = "SHA1"
+    case sha256 = "SHA256"
+    case sha512 = "SHA512"
+}
+
+enum Digit: Int, CaseIterable {
+    case six = 6
+    case eight = 8
 }

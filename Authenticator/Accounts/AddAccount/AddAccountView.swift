@@ -75,8 +75,6 @@ struct AddAccountView: View {
             }) {
                 Text("Save")
             })
-        }.onAppear() {
-            self.addAccountVM.context = viewContext
         }
     }
 }

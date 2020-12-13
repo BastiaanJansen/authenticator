@@ -8,16 +8,25 @@
 import Foundation
 import SwiftOTP
 import CoreData
+import Combine
 
 class HomeViewModel: ObservableObject {
-    var context: NSManagedObjectContext?
+    var cancellable: AnyCancellable?
+    
+    @Published var accounts: [Account] = []
 
     @Published var showSettingsView: Bool = false
     @Published var showScanQRCodeView: Bool = false
     
+    init() {
+        accounts = AccountService.shared.publisher.value
+        
+        cancellable = AccountService.shared.publisher.sink { accounts in
+            self.accounts = accounts
+        }
+    }
+    
     func delete(account: Account) {
-        guard let context = self.context else { fatalError("Context is not set") }
-        context.delete(account)
-        context.saveContext()
+        AccountService.shared.delete(account: account)
     }
 }

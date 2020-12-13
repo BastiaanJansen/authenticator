@@ -10,58 +10,47 @@ import LocalAuthentication
 
 class BiometricAuthService: AuthService {
     
-    let reason: String
-    let context: LAContext
+    public static let shared = BiometricAuthService()
+    private let reason = "Unlock your device with biometrics"
+    private let context = LAContext()
+    private var error: NSError?
     
-    init(reason: String) {
-        self.reason = reason
-        self.context = LAContext()
+    enum BiometricType {
+        case none
+        case touchID
+        case faceID
+    }
+    
+    var biometricType: BiometricType {
+        guard self.context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            return .none
+        }
+
+        if #available(iOS 11.0, *) {
+            switch context.biometryType {
+            case .none:
+                return .none
+            case .touchID:
+                return .touchID
+            case .faceID:
+                return .faceID
+            @unknown default:
+                return .none
+            }
+        } else {
+            return self.context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) ? .touchID : .none
+        }
     }
     
     func authenticate(completion: @escaping (Bool, Error?) -> Void) {
-        
-        if !BiometricAuthService.isAvailable() {
+        if self.biometricType == .none {
             completion(false, BiometricAuthenticationError.notAvailable)
         }
         
         self.context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: self.reason, reply: completion)
-    }
-    
-    static func isAvailable() -> Bool {
-        let authContext = LAContext()
-        var error: NSError?
-        
-        if authContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            return true
-        }
-        
-        return false
-    }
-    
-    static func getType() -> BiometricType {
-        let context = LAContext()
-        
-        guard BiometricAuthService.isAvailable() else { return .none }
-        
-        switch(context.biometryType) {
-        case .none:
-            return BiometricType.none
-        case .touchID:
-            return BiometricType.touchID
-        case .faceID:
-            return BiometricType.faceID
-        @unknown default:
-            return BiometricType.none
-        }
     }
 }
 
 enum BiometricAuthenticationError: Error {
     case notAvailable
  }
-
-enum BiometricType {
-    case none
-    case touchID
-    case faceID
-}

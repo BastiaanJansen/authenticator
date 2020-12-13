@@ -23,17 +23,18 @@ class StartViewModel: ObservableObject {
     }
     
     func shouldAuthenticate() -> Bool {
-        let biometricAuthenticationIsEnabled: Bool = UserDefaults.standard.bool(forKey: "BiometricAuthenticationIsEnabled")
-        return biometricAuthenticationIsEnabled
+        return UserDefaults.biometricAuthenticationIsEnabled
     }
     
     func authenticateBiometric() {
-        let authService = BiometricAuthService(reason: "Use biometrics to unlock your data")
-        
-        authService.authenticate { (success, error) in
+        BiometricAuthService.shared.authenticate { (success, error) in
             DispatchQueue.main.async {
                 if success {
-                    self.isUnlocked = true
+                    return self.isUnlocked = true
+                }
+                
+                if let error = error {
+                    print(error)
                 }
             }
         }

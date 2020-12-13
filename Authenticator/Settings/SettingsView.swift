@@ -19,7 +19,7 @@ struct SettingsView: View {
             Form {
                 
                 Section(header: Text("Security")) {
-                    if let type = BiometricAuthService.getType() {
+                    if let type = BiometricAuthService.shared.biometricType, BiometricAuthService.shared.biometricType != .none {
                         Toggle(isOn: $settingsVM.biometricAuthenticationIsEnabled) {
                             SettingsRowView(
                                 text: type == .faceID ? "Face ID" : "Touch ID",

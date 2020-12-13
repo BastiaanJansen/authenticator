@@ -12,60 +12,23 @@ import Combine
 class ScanQRCodeViewModel: ObservableObject {
     var context: NSManagedObjectContext?
     
-    @Published var accountCreated: Bool = false
+    @Published var account: Account?
     @Published var showAddAccountView: Bool = false
+    
+    init() {
+//        let url = URL(string: "otpauth://totp/Example.com:alice@example.com?algorithm=SHA1&digits=6&issuer=Example.com&period=30&secret=K3XT7VEUS7JFJVCX")
+//        foundBarcode(url: url!)
+    }
 
     
-    func foundBarcode(url: URL) {
-        var map: [String: String] = [:]
-        let mustHaveKeys = ["issuer", "secret", "period"]
+    func foundBarcode(value: String) {
+        guard let url = URL(string: value) else { return }
         
-        guard url.scheme == "otpauth" else { return }
-       
-        guard url.host == "totp" else { return }
-        
-        guard let query = url.query else { return }
-        
-        let path = url.path
-        
-        let name = path.split(separator: ":")
-        
-        if name.count == 1 {
-            map["name"] = String(name[0])
-        } else {
-            map["name"] = String(name[1])
+        do {
+            let account = try Account.init(from: url)
+            self.account = account
+        } catch {
+            print("Something went wrong \(error)")
         }
-        
-        let params = query.split(separator: "&")
-        
-        params.forEach { param in
-            let splitted = param.split(separator: "=")
-            let key = String(splitted[0])
-            let value = String(splitted[1])
-            map[key] = value
-        }
-        
-        guard self.has(mustHaveKeys: mustHaveKeys, in: map) else { return }
-        let _ = self.createAccount(service: map["issuer"]!, name: map["name"]!, secret: map["secret"]!)
-        
-    }
-    
-    private func has(mustHaveKeys keys: [String], in dictionary: [String: String]) -> Bool {
-        for key in keys {
-            if dictionary[key] == nil { return false }
-        }
-        
-        return true
-    }
-    
-    func createAccount(service: String, name: String, secret: String) -> Account {
-        guard let context = self.context else { fatalError("Context is not set") }
-        let account = Account(service: service, name: name, secret: secret)
-        
-        context.saveContext()
-        
-        self.accountCreated = true
-        
-        return account
     }
 }

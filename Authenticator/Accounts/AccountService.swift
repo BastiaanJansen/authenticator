@@ -56,10 +56,6 @@ class AccountService {
         return false
     }
     
-    func save(from url: URL) {
-        
-    }
-    
     @discardableResult
     func delete(account: Account) -> Bool {
         var accounts = get()

@@ -11,27 +11,31 @@ import SwiftKeychainWrapper
 import SwiftOTP
 
 class AddAccountViewModel: ObservableObject {
-    @Published var service: String
+    @Published var issuer: String
     @Published var name: String
-    @Published var key: String
+    @Published var secret: String
     
     @Published var showAdvancedOptions: Bool
     @Published var algorithm: Algorithm
-    @Published var digits: Digit
-    @Published var interval: Int
+    @Published var digits: Int
+    @Published var timeInterval: Int
     
-    init(service: String = "", name: String = "", key: String = "", algorithm: Algorithm = .sha1, digits: Digit = .six, interval: Int = 30) {
-        self.service = service
+    init(issuer: String = "", name: String = "", secret: String = "", algorithm: Algorithm = .sha1, digits: Int = 6, timeInterval: Int = 30) {
+        self.issuer = issuer
         self.name = name
-        self.key = key
+        self.secret = secret
         self.showAdvancedOptions = false
         self.algorithm = algorithm
         self.digits = digits
-        self.interval = interval
+        self.timeInterval = timeInterval
+    }
+    
+    convenience init(account: Account) {
+        self.init(issuer: account.issuer, name: account.name, secret: account.secret, algorithm: account.algorithm, digits: account.digits, timeInterval: account.timeInterval)
     }
     
     func add() {
-        let account = Account(service: self.service, name: self.name, secret: self.key, digits: self.digits.rawValue, timeInterval: self.interval, algorithm: self.algorithm)
+        let account = Account(issuer: self.issuer, name: self.name, secret: self.secret, digits: self.digits, timeInterval: self.timeInterval, algorithm: self.algorithm)
         
         AccountService.shared.save(from: account)
     }

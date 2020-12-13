@@ -80,7 +80,7 @@ struct SettingsView: View {
                             iconColor: .red,
                             iconSize: .medium
                         )
-                    }.foregroundColor(.black)
+                    }
                 }
                 
                 Section(header: Text("About"), footer: Text("Version: \(settingsVM.getAppVersion() ?? "unknown")")) {
@@ -93,7 +93,7 @@ struct SettingsView: View {
                             iconColor: .accentColor,
                             iconSize: .medium
                         )
-                    }.foregroundColor(.black)
+                    }
                 }
             }
             .navigationTitle("Settings")

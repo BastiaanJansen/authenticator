@@ -22,13 +22,20 @@ struct ScanQRCodeView: View {
                     supportBarcode: .constant([.qr]),
                     scanInterval: .constant(2.0)
                 ){
-                    let url = URL(string: $0.value)
-                    if let url = url {
-                        self.scanQRCodeVM.foundBarcode(url: url)
-                        
-                        if self.scanQRCodeVM.accountCreated {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
+//                    let url = URL(string: $0.value)
+//                    if let url = url {
+//                        self.scanQRCodeVM.foundBarcode(url: url)
+//
+//                        if self.scanQRCodeVM.accountCreated {
+//                            self.presentationMode.wrappedValue.dismiss()
+//                        }
+//                    }
+                    
+                    scanQRCodeVM.foundBarcode(value: $0.value)
+                    
+                    if scanQRCodeVM.account != nil {
+                        presentationMode.wrappedValue.dismiss()
+                        scanQRCodeVM.showAddAccountView = true
                     }
                 }
                 .cornerRadius(20)
@@ -52,7 +59,11 @@ struct ScanQRCodeView: View {
                 .sheet(isPresented: self.$scanQRCodeVM.showAddAccountView, onDismiss: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
-                    AddAccountView()
+                    if let account = scanQRCodeVM.account {
+                        AddAccountView(addAccountVM: AddAccountViewModel(account: account))
+                    } else {
+                        AddAccountView()
+                    }
                 }
             }
             .padding(.bottom)

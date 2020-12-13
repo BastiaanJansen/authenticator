@@ -20,12 +20,12 @@ struct AddAccountView: View {
         NavigationView {
             Form {
                 Section(header: Text("Base options")) {
-                    TextField("Service", text: $addAccountVM.service)
+                    TextField("Service", text: $addAccountVM.issuer)
                     TextField("Name", text: $addAccountVM.name)
-                    TextField("Key", text: $addAccountVM.key)
+                    TextField("Key", text: $addAccountVM.issuer)
                 }
                 
-                Section(header: Text("Advanced options")) {
+                Section(header: Text("Advanced options"), footer: Text("If you are not familiar with these options, do not change them. Otherwise, the generated code will not work.")) {
                     Toggle(isOn: $addAccountVM.showAdvancedOptions) {
                         Text("Advanced options")
                     }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
@@ -53,7 +53,7 @@ struct AddAccountView: View {
                             HStack {
                                 Text("Interval")
                                 Spacer()
-                                TextField("", value: $addAccountVM.interval, formatter: NumberFormatter())
+                                TextField("", value: $addAccountVM.timeInterval, formatter: NumberFormatter())
                                     .keyboardType(.numberPad)
                                     .multilineTextAlignment(.trailing)
                             }

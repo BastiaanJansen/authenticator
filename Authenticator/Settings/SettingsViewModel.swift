@@ -11,7 +11,6 @@ import SwiftKeychainWrapper
 class SettingsViewModel: ObservableObject {
     @Published var biometricAuthenticationIsEnabled: Bool {
         didSet {
-            print("Turning \(biometricAuthenticationIsEnabled)")
             if biometricAuthenticationIsEnabled == false {
                 BiometricAuthService.shared.authenticate { [self] (success, error) in
                     if !success {
@@ -19,12 +18,11 @@ class SettingsViewModel: ObservableObject {
                             return biometricAuthenticationIsEnabled = oldValue
                         }
                     }
-                    
-                    UserDefaults.biometricAuthenticationIsEnabled = biometricAuthenticationIsEnabled
+
+                    return UserDefaults.biometricAuthenticationIsEnabled = biometricAuthenticationIsEnabled
                 }
-            } else {
-                UserDefaults.biometricAuthenticationIsEnabled = biometricAuthenticationIsEnabled
             }
+            UserDefaults.biometricAuthenticationIsEnabled = biometricAuthenticationIsEnabled
         }
     }
     

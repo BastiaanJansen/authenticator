@@ -31,7 +31,7 @@ class AddAccountViewModel: ObservableObject {
     }
     
     func add() {
-        let account = Account(service: self.service, name: self.name, key: self.key, digits: self.digits.rawValue, timeInterval: self.interval, algorithm: self.algorithm)
+        let account = Account(service: self.service, name: self.name, secret: self.key, digits: self.digits.rawValue, timeInterval: self.interval, algorithm: self.algorithm)
         
         AccountService.shared.save(from: account)
     }

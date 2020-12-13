@@ -17,7 +17,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                
                 Section(header: Text("Security")) {
                     if let type = BiometricAuthService.shared.biometricType, BiometricAuthService.shared.biometricType != .none {
                         Toggle(isOn: $settingsVM.biometricAuthenticationIsEnabled) {
@@ -71,6 +70,19 @@ struct SettingsView: View {
                     
                 }
                 
+                Section {
+                    Button(action: {
+                        AccountService.shared.delete()
+                    }) {
+                        SettingsRowView(
+                            text: "Delete all accounts",
+                            icon: Image(systemName: "trash"),
+                            iconColor: .red,
+                            iconSize: .medium
+                        )
+                    }.foregroundColor(.black)
+                }
+                
                 Section(header: Text("About"), footer: Text("Version: \(settingsVM.getAppVersion() ?? "unknown")")) {
                     Button(action: {
                         URL.open(link: URL.Link.github)
@@ -81,7 +93,7 @@ struct SettingsView: View {
                             iconColor: .accentColor,
                             iconSize: .medium
                         )
-                    }
+                    }.foregroundColor(.black)
                 }
             }
             .navigationTitle("Settings")

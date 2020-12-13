@@ -46,7 +46,7 @@ class ScanQRCodeViewModel: ObservableObject {
         }
         
         guard self.has(mustHaveKeys: mustHaveKeys, in: map) else { return }
-        let _ = self.createAccount(service: map["issuer"]!, name: map["name"]!, key: map["secret"]!)
+        let _ = self.createAccount(service: map["issuer"]!, name: map["name"]!, secret: map["secret"]!)
         
     }
     
@@ -58,9 +58,9 @@ class ScanQRCodeViewModel: ObservableObject {
         return true
     }
     
-    func createAccount(service: String, name: String, key: String) -> Account {
+    func createAccount(service: String, name: String, secret: String) -> Account {
         guard let context = self.context else { fatalError("Context is not set") }
-        let account = Account(service: service, name: name, key: key)
+        let account = Account(service: service, name: name, secret: secret)
         
         context.saveContext()
         

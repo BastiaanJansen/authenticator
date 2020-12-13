@@ -57,7 +57,7 @@ struct AccountRow: View {
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
-        let account = Account.init(service: "Test service", name: "email@mail.com", key: "DREERRRR")
+        let account = Account.init(service: "Test service", name: "email@mail.com", secret: "DREERRRR")
         return AccountRow(account: account).environment(\.managedObjectContext, context)
     }
 }

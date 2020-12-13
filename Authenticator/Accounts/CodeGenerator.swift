@@ -31,8 +31,8 @@ class CodeGenerator {
         }
     }
     
-    func generate(forKey: String) -> String? {
-        guard let data = base32DecodeToData(forKey) else { return nil }
+    func generate(forSecret: String) -> String? {
+        guard let data = base32DecodeToData(forSecret) else { return nil }
         
         guard let totp = TOTP(secret: data, digits: self.digits, timeInterval: self.timeInterval, algorithm: self.algorithm) else { return nil }
         

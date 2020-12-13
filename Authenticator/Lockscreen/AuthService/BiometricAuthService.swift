@@ -22,7 +22,7 @@ class BiometricAuthService: AuthService {
     }
     
     var biometricType: BiometricType {
-        guard self.context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+        guard self.context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
             return .none
         }
 
@@ -44,10 +44,10 @@ class BiometricAuthService: AuthService {
     
     func authenticate(completion: @escaping (Bool, Error?) -> Void) {
         if self.biometricType == .none {
-            completion(false, BiometricAuthenticationError.notAvailable)
+            return completion(false, BiometricAuthenticationError.notAvailable)
         }
         
-        self.context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: self.reason, reply: completion)
+        self.context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: self.reason, reply: completion)
     }
 }
 

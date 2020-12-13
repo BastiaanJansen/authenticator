@@ -11,15 +11,17 @@ import Combine
 
 class AccountService {
     public static let shared = AccountService()
+    
     public let publisher = CurrentValueSubject<Array<Account>, Never>([])
+    
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
     
     init() {
-        publisher.send(getAll() ?? [])
+        publisher.send(get())
     }
     
-    func getAll() -> [Account]? {
+    func get() -> [Account] {
         let data = KeychainWrapper.standard.data(forKey: "accounts")
 
         guard (data != nil) else { return [] }
@@ -34,25 +36,21 @@ class AccountService {
             print("Something went wrong decoding: \(error)")
         }
         
-        return nil
+        return []
     }
     
     @discardableResult
     func save(from account: Account) -> Bool {
-        let accounts = getAll()
+        var accounts: [Account] = get()
+    
+        accounts.append(account)
         
-        if var accounts = accounts {
-            accounts.append(account)
-            
-            do {
-                let data = try encoder.encode(accounts)
-                
-                publisher.send(accounts)
-                
-                return KeychainWrapper.standard.set(data, forKey: "accounts")
-            } catch {
-                print("Something went wrong encoding: \(error)")
-            }
+        do {
+            let data = try encoder.encode(accounts)
+            publisher.send(accounts)
+            return KeychainWrapper.standard.set(data, forKey: "accounts")
+        } catch {
+            print("Something went wrong encoding: \(error)")
         }
         
         return false
@@ -62,28 +60,38 @@ class AccountService {
         
     }
     
-    func delete(account: Account) {
-        let accounts = getAll()
+    @discardableResult
+    func delete(account: Account) -> Bool {
+        var accounts = get()
         
-        let index = accounts?.firstIndex(where: { (accountInArray) -> Bool in
+        let index = accounts.firstIndex(where: { (accountInArray) -> Bool in
             accountInArray.id == account.id
         })
         
-        if let index = index, var accounts = accounts {
+        if let index = index {
             accounts.remove(at: index)
             
-            save(accounts: accounts)
-            
-            publisher.send(accounts)
+            return save(for: accounts)
         }
+        
+        return false
     }
     
     @discardableResult
-    private func save(accounts: [Account]) -> Bool {
+    func delete() -> Bool {
+        return save(for: [])
+    }
+    
+    @discardableResult
+    private func save(for accounts: [Account]) -> Bool {
         do {
             let data = try encoder.encode(accounts)
             
-            return KeychainWrapper.standard.set(data, forKey: "accounts")
+            let isSuccess = KeychainWrapper.standard.set(data, forKey: "accounts")
+            
+            publisher.send(accounts)
+            
+            return isSuccess
         } catch {
             print("Something went wrong encoding: \(error)")
         }

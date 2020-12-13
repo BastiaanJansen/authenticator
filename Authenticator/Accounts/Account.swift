@@ -13,17 +13,17 @@ class Account: ObservableObject, Codable, Identifiable {
     var id: UUID
     var service: String
     var name: String
-    var key: String
+    var secret: String
     
     var digits: Int
     var timeInterval: Int
     var algorithm: Algorithm
     
-    init(service: String, name: String, key: String, digits: Int = 6, timeInterval: Int = 30, algorithm: Algorithm = .sha1) {
+    init(service: String, name: String, secret: String, digits: Int = 6, timeInterval: Int = 30, algorithm: Algorithm = .sha1) {
         self.id = UUID()
         self.service = service
         self.name = name
-        self.key = key
+        self.secret = secret
         self.digits = digits
         self.timeInterval = timeInterval
         self.algorithm = algorithm
@@ -31,7 +31,7 @@ class Account: ObservableObject, Codable, Identifiable {
     
     func generateCode() -> String? {
         let generator: CodeGenerator = CodeGenerator(digits: digits, timeInterval: timeInterval, algorithm: algorithm)
-        return generator.generate(forKey: self.key)
+        return generator.generate(forSecret: self.secret)
     }
     
     func calculateSecondsUntilRefresh() -> Int {

@@ -17,65 +17,68 @@ struct AddAccountView: View {
     }
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Base options")) {
-                    TextField("Service", text: $addAccountVM.issuer)
-                    TextField("Name", text: $addAccountVM.name)
-                    TextField("Key", text: $addAccountVM.issuer)
-                }
+        Form {
+            Section(header: Text("Base options")) {
+                TextField("Issuer", text: $addAccountVM.issuer)
+                TextField("Name", text: $addAccountVM.name)
+                TextField("Key", text: $addAccountVM.secret)
+            }
+            
+            Section(header: Text("Advanced options"), footer: Text("If you are not familiar with these options, do not change them. Otherwise, the generated code will not work.")) {
+                Toggle(isOn: $addAccountVM.showAdvancedOptions) {
+                    Text("Advanced options")
+                }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 
-                Section(header: Text("Advanced options"), footer: Text("If you are not familiar with these options, do not change them. Otherwise, the generated code will not work.")) {
-                    Toggle(isOn: $addAccountVM.showAdvancedOptions) {
-                        Text("Advanced options")
-                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                    
-                    if addAccountVM.showAdvancedOptions {
-                        Group {
-                            HStack {
-                                Text("Algorithm")
-                                Picker("", selection: $addAccountVM.algorithm) {
-                                    ForEach(Algorithm.allCases, id: \.self) { algorithm in
-                                        Text(algorithm.rawValue)
-                                    }
-                                }.pickerStyle(SegmentedPickerStyle())
-                            }
-                            
-                            HStack {
-                                Text("Digits")
-                                Picker("", selection: $addAccountVM.digits) {
-                                    ForEach(Digit.allCases, id: \.self) { digit in
-                                        Text(String(digit.rawValue))
-                                    }
-                                }.pickerStyle(SegmentedPickerStyle())
-                            }
-                            
-                            HStack {
-                                Text("Interval")
-                                Spacer()
-                                TextField("", value: $addAccountVM.timeInterval, formatter: NumberFormatter())
-                                    .keyboardType(.numberPad)
-                                    .multilineTextAlignment(.trailing)
-                            }
+                if addAccountVM.showAdvancedOptions {
+                    Group {
+                        HStack {
+                            Text("Algorithm")
+                            Picker("", selection: $addAccountVM.algorithm) {
+                                ForEach(Algorithm.allCases, id: \.self) { algorithm in
+                                    Text(algorithm.rawValue)
+                                }
+                            }.pickerStyle(SegmentedPickerStyle())
+                        }
+                        
+                        HStack {
+                            Text("Digits")
+                            Picker("", selection: $addAccountVM.digits) {
+                                ForEach(Digit.allCases, id: \.self) { digit in
+                                    Text(String(digit.rawValue)).tag(digit.rawValue)
+                                }
+                            }.pickerStyle(SegmentedPickerStyle())
+                        }
+                        
+                        HStack {
+                            Text("Interval")
+                            Spacer()
+                            TextField("", value: $addAccountVM.timeInterval, formatter: NumberFormatter())
+                                .keyboardType(.numberPad)
+                                .multilineTextAlignment(.trailing)
                         }
                     }
                 }
             }
-            .gesture(DragGesture().onChanged { _ in
-                self.hideKeyboard()
-            })
-            .navigationTitle("Add account")
-            .navigationBarItems(leading: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Cancel")
-            })
-            .navigationBarItems(trailing: Button(action: {
-                self.addAccountVM.add()
-            }) {
-                Text("Save")
-            })
         }
+        .gesture(DragGesture().onChanged { _ in
+            self.hideKeyboard()
+        })
+        .navigationTitle("Add account")
+        .navigationBarItems(
+//                leading:
+//                    Button(action: {
+//                        self.presentationMode.wrappedValue.dismiss()
+//                    }) {
+//                        Text("Cancel")
+//                    },
+            trailing:
+                Button(action: {
+                    self.addAccountVM.add()
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Save")
+                }.disabled(!addAccountVM.formIsValid)
+        )
     }
 }
 

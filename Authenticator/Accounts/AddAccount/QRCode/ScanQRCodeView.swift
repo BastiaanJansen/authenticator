@@ -18,32 +18,18 @@ struct ScanQRCodeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CBScanner(
-                    supportBarcode: .constant([.qr]),
-                    scanInterval: .constant(2.0)
-                ){
-//                    let url = URL(string: $0.value)
-//                    if let url = url {
-//                        self.scanQRCodeVM.foundBarcode(url: url)
-//
-//                        if self.scanQRCodeVM.accountCreated {
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        }
-//                    }
-                    
-                    scanQRCodeVM.foundBarcode(value: $0.value)
-                    
-                    if scanQRCodeVM.account != nil {
-                        presentationMode.wrappedValue.dismiss()
-                        scanQRCodeVM.showAddAccountView = true
+                if !scanQRCodeVM.showAddAccountView {
+                    CBScanner(
+                        supportBarcode: .constant([.qr]),
+                        scanInterval: .constant(2.0)
+                    ){
+                        scanQRCodeVM.foundBarcode(value: $0.value)
                     }
+                    .cornerRadius(20)
+                    .padding()
                 }
-                .cornerRadius(20)
-                .padding()
                  
-                Button(action: {
-                    self.scanQRCodeVM.showAddAccountView.toggle()
-                }) {
+                NavigationLink(destination: (scanQRCodeVM.account != nil) ? AddAccountView(addAccountVM: AddAccountViewModel(account: scanQRCodeVM.account!)) : AddAccountView(), isActive: $scanQRCodeVM.showAddAccountView) {
                     Text("Enter code manually")
                         .foregroundColor(.white)
                         .font(.system(size: 14))
@@ -56,16 +42,10 @@ struct ScanQRCodeView: View {
                                 .frame(width: 200)
                     )
                 }
-                .sheet(isPresented: self.$scanQRCodeVM.showAddAccountView, onDismiss: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    if let account = scanQRCodeVM.account {
-                        AddAccountView(addAccountVM: AddAccountViewModel(account: account))
-                    } else {
-                        AddAccountView()
-                    }
-                }
             }
+            .onReceive(scanQRCodeVM.publisher, perform: { account in
+                self.scanQRCodeVM.showAddAccountView = true
+            })
             .padding(.bottom)
             .navigationTitle("Scan QR code")
             .navigationBarItems(leading:
@@ -75,9 +55,6 @@ struct ScanQRCodeView: View {
                     Text("Cancel")
                 }
             )
-        }
-        .onAppear() {
-            self.scanQRCodeVM.context = viewContext
         }
     }
 }

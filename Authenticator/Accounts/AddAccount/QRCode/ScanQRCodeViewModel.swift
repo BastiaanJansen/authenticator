@@ -10,7 +10,7 @@ import CoreData
 import Combine
 
 class ScanQRCodeViewModel: ObservableObject {
-    var context: NSManagedObjectContext?
+    let publisher = PassthroughSubject<Account, Never>();
     
     @Published var account: Account?
     @Published var showAddAccountView: Bool = false
@@ -25,8 +25,9 @@ class ScanQRCodeViewModel: ObservableObject {
         guard let url = URL(string: value) else { return }
         
         do {
-            let account = try Account.init(from: url)
+            let account = try Account(from: url)
             self.account = account
+            publisher.send(account)
         } catch {
             print("Something went wrong \(error)")
         }

@@ -59,7 +59,11 @@ extension Account {
         
         var digits = 6
         if let digitsString = queryItems?[AccountKey.digits.rawValue] {
-            digits = Int(digitsString) ?? digits
+            let digitsInt = Int(digitsString) ?? digits
+            guard 6...8 ~= digitsInt else {
+                throw AccountError.invalidURL
+            }
+            digits = digitsInt
         }
         
         var period = 30

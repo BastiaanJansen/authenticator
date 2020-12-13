@@ -20,6 +20,11 @@ class AddAccountViewModel: ObservableObject {
     @Published var digits: Int
     @Published var timeInterval: Int
     
+    var formIsValid: Bool {
+        if (issuer.isEmpty || name.isEmpty || secret.isEmpty || base32DecodeToData(secret) == nil) { return false }
+        return true
+    }
+    
     init(issuer: String = "", name: String = "", secret: String = "", algorithm: Algorithm = .sha1, digits: Int = 6, timeInterval: Int = 30) {
         self.issuer = issuer
         self.name = name

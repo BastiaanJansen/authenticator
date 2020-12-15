@@ -17,6 +17,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var showSettingsView: Bool = false
     @Published var showScanQRCodeView: Bool = false
+    @Published var showAddAccountView: Bool = false
     
     init() {
         accounts = AccountService.shared.publisher.value

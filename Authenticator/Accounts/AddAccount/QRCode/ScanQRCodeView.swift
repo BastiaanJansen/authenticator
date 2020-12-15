@@ -13,7 +13,7 @@ struct ScanQRCodeView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     
-    @ObservedObject var scanQRCodeVM = ScanQRCodeViewModel()
+    @ObservedObject var scanQRCodeVM: ScanQRCodeViewModel
     
     var body: some View {
         NavigationView {
@@ -44,7 +44,8 @@ struct ScanQRCodeView: View {
                 }
             }
             .onReceive(scanQRCodeVM.publisher, perform: { account in
-                self.scanQRCodeVM.showAddAccountView = true
+//                presentationMode.wrappedValue.dismiss()
+                scanQRCodeVM.showAddAccountView = true
             })
             .padding(.bottom)
             .navigationTitle("Scan QR code")
@@ -61,7 +62,7 @@ struct ScanQRCodeView: View {
 
 struct ScanQRCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        ScanQRCodeView()
-        ScanQRCodeView().preferredColorScheme(.dark)
+        ScanQRCodeView(scanQRCodeVM: ScanQRCodeViewModel())
+        ScanQRCodeView(scanQRCodeVM: ScanQRCodeViewModel()).preferredColorScheme(.dark)
     }
 }

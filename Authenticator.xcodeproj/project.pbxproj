@@ -14,6 +14,7 @@
 		283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */; };
 		283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB8257D406900489F44 /* StartViewModel.swift */; };
 		283F5AD6257D4E7700489F44 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */; };
+		284E7D652588C7A8002E489A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D642588C7A8002E489A /* CircularProgressBar.swift */; };
 		2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD6B257D070400D60A05 /* AddAccountView.swift */; };
 		2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD70257D072800D60A05 /* AddAccountViewModel.swift */; };
 		2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */; };
@@ -79,6 +80,7 @@
 		283F5AAB257D3C7300489F44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		283F5AB8257D406900489F44 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		284E7D642588C7A8002E489A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		2875AD6B257D070400D60A05 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		2875AD70257D072800D60A05 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
 		2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				28FAEF40257CCB55008E8FD6 /* HomeView.swift */,
 				28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */,
 				280B2DD225864931008DF33B /* AccountService.swift */,
+				284E7D642588C7A8002E489A /* CircularProgressBar.swift */,
 			);
 			path = Accounts;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
 				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,
 				28DABA56258164380095EDF1 /* PasscodeAuthService.swift in Sources */,
+				284E7D652588C7A8002E489A /* CircularProgressBar.swift in Sources */,
 				28FAEF41257CCB55008E8FD6 /* HomeView.swift in Sources */,
 				288B45782581457800664297 /* PasscodeViewModel.swift in Sources */,
 				283F5AB1257D3E9200489F44 /* SettingsViewModel.swift in Sources */,

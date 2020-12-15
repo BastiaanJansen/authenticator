@@ -62,5 +62,6 @@ struct ScanQRCodeView: View {
 struct ScanQRCodeView_Previews: PreviewProvider {
     static var previews: some View {
         ScanQRCodeView()
+        ScanQRCodeView().preferredColorScheme(.dark)
     }
 }

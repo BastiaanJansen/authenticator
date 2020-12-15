@@ -12,39 +12,62 @@ struct AccountRow: View {
     @State var secondsUntilRefresh = 0
     @State var code: String?
     
+    @State var progress: Float = 0.0
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(account.issuer).bold()
-                Text(account.name).foregroundColor(.gray).font(.system(size: 14))
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(account.issuer)
+                        .bold()
+                        .font(.system(size: 23))
+                    Text(account.name).foregroundColor(.gray).font(.system(size: 14))
+                }
+                
+                Spacer()
+                
+                VStack {
+                    CircularProgressBar(progress: .constant(progress), color: secondsUntilRefresh <= 5 ? .constant(.red) : .constant(.accentColor))
+                        .frame(width: 23, height: 23)
+                }
             }
             
-            Spacer()
+            Spacer().frame(height: 20)
             
-            VStack(alignment: .trailing) {
-                Text(code?.separate(every: 3, with: " ") ?? "No code")
-                    .font(.title2)
-                    .bold()
-                Text(String(secondsUntilRefresh))
-                    .bold()
-                    .if(secondsUntilRefresh > 5) {
-                        $0.foregroundColor(.accentColor)
+            HStack {
+                ForEach(Array(Array(code ?? "").enumerated()), id: \.offset) { index, character in
+                    Text(String(character))
+                        .bold()
+                        .foregroundColor(.accentColor)
+                        .font(.system(size: 17))
+                        .frame(width: 35, height: 35)
+                        .background(
+                            Color.accentColor.opacity(0.15)
+                        )
+                        .cornerRadius(10)
+                        .clipShape(Rectangle())
+                    
+                    if let code = code {
+                        if index == code.count / 2 - 1 {
+                            Spacer().frame(width: 20)
+                        }
                     }
-                    .if(secondsUntilRefresh <= 5) {
-                        $0.foregroundColor(.red)
-                    }
+                }
             }
+            
         }
+        .padding(.vertical)
         .onAppear {
-            self.code = account.generateCode()
+            code = account.generateCode()
+            secondsUntilRefresh = account.calculateSecondsUntilRefresh()
+            progress = 1 - Float(secondsUntilRefresh) / Float(account.timeInterval)
         }
-        .padding(.top, 5)
-        .padding(.bottom, 5)
         .onReceive(timer, perform: { _ in
             let remainder = account.calculateSecondsUntilRefresh()
-            self.secondsUntilRefresh = remainder
+            secondsUntilRefresh = remainder
+            progress = 1 - Float(secondsUntilRefresh) / Float(account.timeInterval)
     
             if remainder == account.timeInterval {
                 self.code = account.generateCode()

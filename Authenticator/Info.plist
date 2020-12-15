@@ -77,6 +77,10 @@
 	<string>Scanning QR codes</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Use FaceID to unlock your data</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>ConfigurationIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -22,21 +22,17 @@ struct Provider: TimelineProvider {
     
     func placeholder(in context: Context) -> AccountEntry {
         let accounts = AccountService.shared.get()
-        return AccountEntry(date: Date(), accounts: accounts)
+        return AccountEntry(date: Calendar.current.date(byAdding: .second, value: 30, to: Date())!, accounts: accounts)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (AccountEntry) -> Void) {
         let accounts = AccountService.shared.get()
-        let entry = AccountEntry(date: Date(), accounts: accounts)
+        let entry = AccountEntry(date: Calendar.current.date(byAdding: .second, value: 30, to: Date())!, accounts: accounts)
         print("Getting snapshot")
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<AccountEntry>) -> Void) {
-        
-//        let accounts = [
-//            Account(issuer: "Microsoft", name: "email@mail.com", secret: "DREERRRR", digits: 6, timeInterval: 30, algorithm: .sha1)
-//        ]
         
         print("Getting timeline")
         
@@ -72,14 +68,18 @@ struct AuthenticatorWidgetEntryView: View {
 struct AuthenticatorWidgetMediumView: View {
     let entry: Provider.Entry
     
+    @State var code: String?
+    
     var body: some View {
         VStack(alignment: .leading) {
-//            ForEach(entry.accounts, id: \.id) { account in
-//                AccountRow(account: account)
-//            }
-            if entry.accounts.count > 0 {
-                AccountRow(account: entry.accounts[0])
-                    .padding()
+           if let account = entry.accounts[0] {
+            
+                let remainder = account.calculateSecondsUntilRefresh()
+                
+                let countdown = Calendar.current.date(byAdding: .second, value: remainder, to: Date())!
+            
+                Text(account.generateCode() ?? "No code")
+                Text(countdown, style: .timer)
             } else {
                 Text("No account added yet")
                     .font(.system(size: 13))
@@ -92,17 +92,15 @@ struct AuthenticatorWidgetLargeView: View {
     let entry: Provider.Entry
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if entry.accounts.count > 0 {
-                AccountRow(account: entry.accounts[0])
-                    .padding(.horizontal)
-                AccountRow(account: entry.accounts[1])
-                    .padding(.horizontal)
-            } else {
-                Text("No account added yet")
-                    .font(.system(size: 13))
-            }
-        }
+//        VStack(alignment: .leading) {
+//            if let account = entry.accounts[0] {
+//                Text(entry.date, style: .timer)
+//            } else {
+//                Text("No account added yet")
+//                    .font(.system(size: 13))
+//            }
+//        }
+        Text("Not implemented")
     }
 }
 

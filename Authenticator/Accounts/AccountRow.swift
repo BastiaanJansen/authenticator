@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct AccountRow: View {
     @ObservedObject var account: Account
@@ -72,6 +73,7 @@ struct AccountRow: View {
             if remainder == account.timeInterval {
                 self.code = account.generateCode()
                 self.secondsUntilRefresh = account.timeInterval
+                WidgetCenter.shared.reloadAllTimelines()
             }
         })
     }
@@ -79,8 +81,7 @@ struct AccountRow: View {
 
 struct AccountRow_Previews: PreviewProvider {
     static var previews: some View {
-        let context = PersistenceController.shared.container.viewContext
         let account = Account.init(issuer: "Test service", name: "email@mail.com", secret: "DREERRRR")
-        return AccountRow(account: account).environment(\.managedObjectContext, context)
+        return AccountRow(account: account)
     }
 }

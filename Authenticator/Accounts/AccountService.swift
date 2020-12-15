@@ -16,13 +16,14 @@ class AccountService {
     
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
+    private let keychainInstance = KeychainWrapper(serviceName: KeychainWrapper.serviceName, accessGroup: KeychainWrapper.accessGroup)
     
     init() {
         publisher.send(get())
     }
     
     func get() -> [Account] {
-        let data = KeychainWrapper.standard.data(forKey: "accounts")
+        let data = keychainInstance.data(forKey: .accounts)
 
         guard (data != nil) else { return [] }
         
@@ -48,7 +49,7 @@ class AccountService {
         do {
             let data = try encoder.encode(accounts)
             publisher.send(accounts)
-            return KeychainWrapper.standard.set(data, forKey: "accounts")
+            return keychainInstance.set(data, forKey: KeychainWrapper.Key.accounts.rawValue)
         } catch {
             print("Something went wrong encoding: \(error)")
         }
@@ -83,7 +84,7 @@ class AccountService {
         do {
             let data = try encoder.encode(accounts)
             
-            let isSuccess = KeychainWrapper.standard.set(data, forKey: "accounts")
+            let isSuccess = keychainInstance.set(data, forKey: KeychainWrapper.Key.accounts.rawValue)
             
             publisher.send(accounts)
             

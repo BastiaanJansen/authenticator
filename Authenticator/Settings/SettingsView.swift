@@ -27,36 +27,16 @@ struct SettingsView: View {
                             )
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         
-                        if settingsVM.biometricAuthenticationIsEnabled {
-                            Toggle(isOn: $settingsVM.autoLockIsEnabled) {
-                                SettingsRowView(
-                                    text: "Auto-Lock",
-                                    icon: Image(systemName: "lock"),
-                                    iconColor: .red
-                                )
-                            }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                        }
+//                        if settingsVM.biometricAuthenticationIsEnabled {
+//                            Toggle(isOn: $settingsVM.autoLockIsEnabled) {
+//                                SettingsRowView(
+//                                    text: "Auto-Lock",
+//                                    icon: Image(systemName: "lock"),
+//                                    iconColor: .red
+//                                )
+//                            }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
+//                        }
                     }
-                }
-                
-                Section(footer: Text("Enabling Widgets will allow you to add accounts to your widgets on your Home Screen.")) {
-                    Toggle(isOn: $settingsVM.widgetsAreEnabled) {
-                        SettingsRowView(
-                            text: "Widgets",
-                            icon: Image(systemName: "rectangle.grid.1x2.fill"),
-                            iconColor: .blue
-                        )
-                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                }
-                
-                Section(footer: Text("Enabling Apple Watch will allow you to add accounts to your watch.")) {
-                    Toggle(isOn: $settingsVM.appleWatchIsEnabled) {
-                        SettingsRowView(
-                            text: "Apple Watch",
-                            icon: Image(systemName: "applewatch"),
-                            iconColor: .gray
-                        )
-                    }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
                 }
                 
                 Section(header: Text("Appearance")) {

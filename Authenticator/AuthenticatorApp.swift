@@ -18,7 +18,6 @@ struct AuthenticatorApp: App {
         UserDefaults.standard.set(defaultValues: [
             .biometricAuthenticationIsEnabled: false,
             .autoLockIsEnabled: false,
-            .widgetsAreEnabled: false
         ])
     }
 

@@ -26,16 +26,6 @@ struct SettingsView: View {
                                 iconColor: type == .faceID ? .green : .red
                             )
                         }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-                        
-//                        if settingsVM.biometricAuthenticationIsEnabled {
-//                            Toggle(isOn: $settingsVM.autoLockIsEnabled) {
-//                                SettingsRowView(
-//                                    text: "Auto-Lock",
-//                                    icon: Image(systemName: "lock"),
-//                                    iconColor: .red
-//                                )
-//                            }.toggleStyle(SwitchToggleStyle(tint: .accentColor))
-//                        }
                     }
                 }
                 
@@ -48,19 +38,6 @@ struct SettingsView: View {
                         )
                     }
                     
-                }
-                
-                Section {
-                    Button(action: {
-                        AccountService.shared.delete()
-                    }) {
-                        SettingsRowView(
-                            text: "Delete all accounts",
-                            icon: Image(systemName: "trash"),
-                            iconColor: .red,
-                            iconSize: .medium
-                        )
-                    }
                 }
                 
                 Section(header: Text("About"), footer: Text("Version: \(settingsVM.getAppVersion() ?? "unknown")")) {

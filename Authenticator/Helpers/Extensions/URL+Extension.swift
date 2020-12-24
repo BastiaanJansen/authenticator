@@ -10,7 +10,7 @@ import UIKit
 
 extension URL {
     enum Link: String {
-        case github = "https://github.com/BastiaanJansen"
+        case github = "https://github.com/BastiaanJansen/Authenticator"
     }
     
     init?(link: Link) {

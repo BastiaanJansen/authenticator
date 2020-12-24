@@ -29,7 +29,7 @@ struct ScanQRCodeView: View {
                     .padding()
                 }
                  
-                NavigationLink(destination: (scanQRCodeVM.account != nil) ? AddAccountView(addAccountVM: AddAccountViewModel(account: scanQRCodeVM.account!)) : AddAccountView(), isActive: $scanQRCodeVM.showAddAccountView) {
+                NavigationLink(destination: (scanQRCodeVM.addAccountVM != nil) ? AddAccountView(addAccountVM: scanQRCodeVM.addAccountVM!) : AddAccountView(), isActive: $scanQRCodeVM.showAddAccountView) {
                     Text("Enter code manually")
                         .foregroundColor(.white)
                         .font(.system(size: 14))
@@ -44,7 +44,7 @@ struct ScanQRCodeView: View {
                 }
             }
             .onReceive(scanQRCodeVM.publisher, perform: { account in
-//                presentationMode.wrappedValue.dismiss()
+                scanQRCodeVM.addAccountVM = AddAccountViewModel(account: account)
                 scanQRCodeVM.showAddAccountView = true
             })
             .padding(.bottom)

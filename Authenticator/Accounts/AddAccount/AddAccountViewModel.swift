@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import SwiftKeychainWrapper
 import SwiftOTP
+import Combine
 
 class AddAccountViewModel: ObservableObject {
     @Published var issuer: String
@@ -19,6 +20,8 @@ class AddAccountViewModel: ObservableObject {
     @Published var algorithm: Algorithm
     @Published var digits: Int
     @Published var timeInterval: Int
+    
+    let publisher = PassthroughSubject<Account, Never>();
     
     var formIsValid: Bool {
         if (issuer.isEmpty || name.isEmpty || secret.isEmpty || base32DecodeToData(secret) == nil) { return false }
@@ -43,5 +46,7 @@ class AddAccountViewModel: ObservableObject {
         let account = Account(issuer: self.issuer, name: self.name, secret: self.secret, digits: self.digits, timeInterval: self.timeInterval, algorithm: self.algorithm)
         
         AccountService.shared.save(from: account)
+        
+        publisher.send(account)
     }
 }

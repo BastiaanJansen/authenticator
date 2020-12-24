@@ -11,16 +11,12 @@ import Combine
 
 class ScanQRCodeViewModel: ObservableObject {
     let publisher = PassthroughSubject<Account, Never>();
+    var cancellable: AnyCancellable?
     
     @Published var account: Account?
     @Published var showAddAccountView: Bool = false
-    
-    init() {
-//        let url = URL(string: "otpauth://totp/Example.com:alice@example.com?algorithm=SHA1&digits=6&issuer=Example.com&period=30&secret=K3XT7VEUS7JFJVCX")
-//        foundBarcode(url: url!)
-    }
+    var addAccountVM: AddAccountViewModel?
 
-    
     func foundBarcode(value: String) {
         guard let url = URL(string: value) else { return }
         

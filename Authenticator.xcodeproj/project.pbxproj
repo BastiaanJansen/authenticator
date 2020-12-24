@@ -15,26 +15,9 @@
 		283F5AB9257D406900489F44 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F5AB8257D406900489F44 /* StartViewModel.swift */; };
 		283F5AD6257D4E7700489F44 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */; };
 		284E7D652588C7A8002E489A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D642588C7A8002E489A /* CircularProgressBar.swift */; };
-		284E7D702588D9C6002E489A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284E7D6F2588D9C6002E489A /* WidgetKit.framework */; };
-		284E7D722588D9C6002E489A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284E7D712588D9C6002E489A /* SwiftUI.framework */; };
-		284E7D752588D9C6002E489A /* AuthenticatorWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D742588D9C6002E489A /* AuthenticatorWidget.swift */; };
-		284E7D782588D9C8002E489A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284E7D772588D9C8002E489A /* Assets.xcassets */; };
-		284E7D7A2588D9C8002E489A /* AuthenticatorWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D762588D9C6002E489A /* AuthenticatorWidget.intentdefinition */; };
-		284E7D7B2588D9C8002E489A /* AuthenticatorWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D762588D9C6002E489A /* AuthenticatorWidget.intentdefinition */; };
-		284E7D7E2588D9C8002E489A /* AuthenticatorWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 284E7D6D2588D9C6002E489A /* AuthenticatorWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		284E7D9A2588F0A0002E489A /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AAB5D6257FEA21007EA84B /* URL+Extension.swift */; };
 		284E7DA02588F0B6002E489A /* URL+queryItemsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D9F2588F0B6002E489A /* URL+queryItemsExtension.swift */; };
-		284E7DC02588F312002E489A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF4F257CD28B008E8FD6 /* Account.swift */; };
-		284E7DC52588F3E9002E489A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FAEF48257CCB84008E8FD6 /* HomeViewModel.swift */; };
-		284E7DCA2588F52E002E489A /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280B2DD225864931008DF33B /* AccountService.swift */; };
-		284E7DCF2588F534002E489A /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC4257CEBE600E2703D /* CodeGenerator.swift */; };
-		284E7DD42588F540002E489A /* URL+queryItemsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D9F2588F0B6002E489A /* URL+queryItemsExtension.swift */; };
-		284E7DDA2588F5EB002E489A /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 284E7DD92588F5EB002E489A /* SwiftOTP */; };
-		284E7DDC2588F5EB002E489A /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 284E7DDB2588F5EB002E489A /* SwiftKeychainWrapper */; };
-		284E7DE52588FA29002E489A /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C0DC9257CF85400E2703D /* AccountRow.swift */; };
-		284E7DEE2588FB26002E489A /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7D642588C7A8002E489A /* CircularProgressBar.swift */; };
 		284E7DF425892847002E489A /* KeychainWrapper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7DF325892847002E489A /* KeychainWrapper+Extension.swift */; };
-		284E7DF92589284C002E489A /* KeychainWrapper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E7DF325892847002E489A /* KeychainWrapper+Extension.swift */; };
 		2875AD6C257D070400D60A05 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD6B257D070400D60A05 /* AddAccountView.swift */; };
 		2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD70257D072800D60A05 /* AddAccountViewModel.swift */; };
 		2875AD76257D09C200D60A05 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2875AD75257D09C200D60A05 /* ScanQRCodeViewModel.swift */; };
@@ -76,13 +59,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		284E7D7C2588D9C8002E489A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 28FAEEF7257CC98F008E8FD6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 284E7D6C2588D9C6002E489A;
-			remoteInfo = AuthenticatorWidgetExtension;
-		};
 		28FAEF16257CC991008E8FD6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 28FAEEF7257CC98F008E8FD6 /* Project object */;
@@ -106,7 +82,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				284E7D7E2588D9C8002E489A /* AuthenticatorWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,13 +96,8 @@
 		283F5AB0257D3E9200489F44 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		283F5AB8257D406900489F44 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		284E7D642588C7A8002E489A /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
-		284E7D6D2588D9C6002E489A /* AuthenticatorWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AuthenticatorWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		284E7D6F2588D9C6002E489A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		284E7D712588D9C6002E489A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		284E7D742588D9C6002E489A /* AuthenticatorWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorWidget.swift; sourceTree = "<group>"; };
-		284E7D762588D9C6002E489A /* AuthenticatorWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = AuthenticatorWidget.intentdefinition; sourceTree = "<group>"; };
-		284E7D772588D9C8002E489A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		284E7D792588D9C8002E489A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		284E7D9F2588F0B6002E489A /* URL+queryItemsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+queryItemsExtension.swift"; sourceTree = "<group>"; };
 		284E7DAA2588F10E002E489A /* AuthenticatorWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorWidgetExtension.entitlements; sourceTree = "<group>"; };
 		284E7DAF2588F133002E489A /* Authenticator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Authenticator.entitlements; sourceTree = "<group>"; };
@@ -178,17 +148,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		284E7D6A2588D9C6002E489A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				284E7D722588D9C6002E489A /* SwiftUI.framework in Frameworks */,
-				284E7DDA2588F5EB002E489A /* SwiftOTP in Frameworks */,
-				284E7DDC2588F5EB002E489A /* SwiftKeychainWrapper in Frameworks */,
-				284E7D702588D9C6002E489A /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		28FAEEFC257CC98F008E8FD6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,17 +182,6 @@
 				284E7D712588D9C6002E489A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		284E7D732588D9C6002E489A /* AuthenticatorWidget */ = {
-			isa = PBXGroup;
-			children = (
-				284E7D742588D9C6002E489A /* AuthenticatorWidget.swift */,
-				284E7D762588D9C6002E489A /* AuthenticatorWidget.intentdefinition */,
-				284E7D772588D9C8002E489A /* Assets.xcassets */,
-				284E7D792588D9C8002E489A /* Info.plist */,
-			);
-			path = AuthenticatorWidget;
 			sourceTree = "<group>";
 		};
 		288B454325811F5000664297 /* Lockscreen */ = {
@@ -363,7 +311,6 @@
 				28FAEF01257CC98F008E8FD6 /* Authenticator */,
 				28FAEF18257CC991008E8FD6 /* AuthenticatorTests */,
 				28FAEF23257CC991008E8FD6 /* AuthenticatorUITests */,
-				284E7D732588D9C6002E489A /* AuthenticatorWidget */,
 				284E7D6E2588D9C6002E489A /* Frameworks */,
 				28FAEF00257CC98F008E8FD6 /* Products */,
 			);
@@ -375,7 +322,6 @@
 				28FAEEFF257CC98F008E8FD6 /* Authenticator.app */,
 				28FAEF15257CC991008E8FD6 /* AuthenticatorTests.xctest */,
 				28FAEF20257CC991008E8FD6 /* AuthenticatorUITests.xctest */,
-				284E7D6D2588D9C6002E489A /* AuthenticatorWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,27 +376,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		284E7D6C2588D9C6002E489A /* AuthenticatorWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 284E7D7F2588D9C8002E489A /* Build configuration list for PBXNativeTarget "AuthenticatorWidgetExtension" */;
-			buildPhases = (
-				284E7D692588D9C6002E489A /* Sources */,
-				284E7D6A2588D9C6002E489A /* Frameworks */,
-				284E7D6B2588D9C6002E489A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AuthenticatorWidgetExtension;
-			packageProductDependencies = (
-				284E7DD92588F5EB002E489A /* SwiftOTP */,
-				284E7DDB2588F5EB002E489A /* SwiftKeychainWrapper */,
-			);
-			productName = AuthenticatorWidgetExtension;
-			productReference = 284E7D6D2588D9C6002E489A /* AuthenticatorWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		28FAEEFE257CC98F008E8FD6 /* Authenticator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28FAEF29257CC991008E8FD6 /* Build configuration list for PBXNativeTarget "Authenticator" */;
@@ -463,7 +388,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				284E7D7D2588D9C8002E489A /* PBXTargetDependency */,
 			);
 			name = Authenticator;
 			packageProductDependencies = (
@@ -520,9 +444,6 @@
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					284E7D6C2588D9C6002E489A = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					28FAEEFE257CC98F008E8FD6 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -557,20 +478,11 @@
 				28FAEEFE257CC98F008E8FD6 /* Authenticator */,
 				28FAEF14257CC991008E8FD6 /* AuthenticatorTests */,
 				28FAEF1F257CC991008E8FD6 /* AuthenticatorUITests */,
-				284E7D6C2588D9C6002E489A /* AuthenticatorWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		284E7D6B2588D9C6002E489A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				284E7D782588D9C8002E489A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		28FAEEFD257CC98F008E8FD6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,23 +512,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		284E7D692588D9C6002E489A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				284E7DE52588FA29002E489A /* AccountRow.swift in Sources */,
-				284E7DD42588F540002E489A /* URL+queryItemsExtension.swift in Sources */,
-				284E7DEE2588FB26002E489A /* CircularProgressBar.swift in Sources */,
-				284E7DF92589284C002E489A /* KeychainWrapper+Extension.swift in Sources */,
-				284E7DCF2588F534002E489A /* CodeGenerator.swift in Sources */,
-				284E7D7A2588D9C8002E489A /* AuthenticatorWidget.intentdefinition in Sources */,
-				284E7D752588D9C6002E489A /* AuthenticatorWidget.swift in Sources */,
-				284E7DC02588F312002E489A /* Account.swift in Sources */,
-				284E7DCA2588F52E002E489A /* AccountService.swift in Sources */,
-				284E7DC52588F3E9002E489A /* HomeViewModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		28FAEEFB257CC98F008E8FD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,7 +533,6 @@
 				2875AD71257D072800D60A05 /* AddAccountViewModel.swift in Sources */,
 				28AEDA4C2584E7AD004EA2DA /* View+Extension.swift in Sources */,
 				28FAEF0F257CC991008E8FD6 /* Authenticator.xcdatamodeld in Sources */,
-				284E7D7B2588D9C8002E489A /* AuthenticatorWidget.intentdefinition in Sources */,
 				28FAEF05257CC98F008E8FD6 /* StartView.swift in Sources */,
 				28DABA56258164380095EDF1 /* PasscodeAuthService.swift in Sources */,
 				284E7D652588C7A8002E489A /* CircularProgressBar.swift in Sources */,
@@ -683,11 +577,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		284E7D7D2588D9C8002E489A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 284E7D6C2588D9C6002E489A /* AuthenticatorWidgetExtension */;
-			targetProxy = 284E7D7C2588D9C8002E489A /* PBXContainerItemProxy */;
-		};
 		28FAEF17257CC991008E8FD6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 28FAEEFE257CC98F008E8FD6 /* Authenticator */;
@@ -701,50 +590,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		284E7D802588D9C8002E489A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = AuthenticatorWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94N28U4FG3;
-				INFOPLIST_FILE = AuthenticatorWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.basjansen.Authenticator.AuthenticatorWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		284E7D812588D9C8002E489A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = AuthenticatorWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 94N28U4FG3;
-				INFOPLIST_FILE = AuthenticatorWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.basjansen.Authenticator.AuthenticatorWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		28FAEF27257CC991008E8FD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -996,15 +841,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		284E7D7F2588D9C8002E489A /* Build configuration list for PBXNativeTarget "AuthenticatorWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				284E7D802588D9C8002E489A /* Debug */,
-				284E7D812588D9C8002E489A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		28FAEEFA257CC98F008E8FD6 /* Build configuration list for PBXProject "Authenticator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1072,16 +908,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		283F5AD5257D4E7700489F44 /* SwiftKeychainWrapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 283F5AD4257D4E7700489F44 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
-			productName = SwiftKeychainWrapper;
-		};
-		284E7DD92588F5EB002E489A /* SwiftOTP */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 28FAEF35257CCAFE008E8FD6 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
-			productName = SwiftOTP;
-		};
-		284E7DDB2588F5EB002E489A /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 283F5AD4257D4E7700489F44 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;

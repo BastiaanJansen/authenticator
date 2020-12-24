@@ -25,9 +25,6 @@ struct AuthenticatorApp: App {
         WindowGroup {
             StartView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .onOpenURL(perform: { url in
-                    print("URL deeplink")
-                })
 //            PasscodeView()
         }
     }

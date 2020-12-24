@@ -7,12 +7,30 @@
 		<key>Authenticator.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>AuthenticatorWidgetExtension.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>284E7D6C2588D9C6002E489A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28FAEEFE257CC98F008E8FD6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28FAEF14257CC991008E8FD6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28FAEF1F257CC991008E8FD6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

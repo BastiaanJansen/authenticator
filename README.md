@@ -15,3 +15,7 @@ Two-Factor authentication client for iOS.
   <img src="Images/Add-account.PNG" width="200px">
   <img src="Images/Add-account-dark.PNG" width="200px">
 </div>
+
+<div>
+  <img src="Images/Icon.PNG" width="200px">
+</div>
